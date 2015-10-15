@@ -7,11 +7,6 @@
   function barrelCtrl(userFactory, barrelFactory) {
     var self = this;
 
-    self.query = {
-      filter: '',
-      order: 'date',
-    };
-
     setParams();
 
     function setParams() {

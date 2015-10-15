@@ -1,1 +1,26 @@
-<div>EVENTS</div>
+<md-content layout="column" flex layout-align="start center">
+  <div layout="row" class="turtle-options" layout-align="center center">
+    <md-radio-group ng-model="events.version" ng-change="events.updateVersion()" class="version-options">
+      <md-radio-button value="global">GLOBAL</md-radio-button>
+      <md-radio-button value="japan">JAPAN</md-radio-button>
+    </md-radio-group>
+  </div>
+  <md-data-table-container>
+    <table md-data-table md-row-selected="event.selected">
+      <thead md-order="barrel.query.order">
+        <tr>
+          <th name="Date"></th>
+          <th name="2x Drop"></th>
+          <th name="1/2 Stamina"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr md-auto-select ng-repeat="time in events.eventTimes">
+          <td>{{time.date}}</td>
+          <td>{{time.drop}}</td>
+          <td>{{time.stamina}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-data-table-container>
+</md-content>
