@@ -1,1 +1,1 @@
-angular.module('app', ['ui.router', 'ngMaterial', 'ngMdIcons', 'LocalStorageModule']);
+angular.module('app', ['ui.router', 'ngMaterial', 'ngMdIcons', 'LocalStorageModule', 'md.data.table']);

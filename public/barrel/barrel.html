@@ -1,7 +1,37 @@
 <md-content layout="column" flex layout-align="start center">
-  <md-checkbox ng-model="barrel.format" ng-change="barrel.updateFormat">
-    Show Hours
-  </md-checkbox>
-
-  
+  <div layout="row" class="turtle-options" layout-align="center center">
+    <md-radio-group ng-model="barrel.version" ng-change="barrel.updateVersion()" class="version-options">
+      <md-radio-button value="global">GLOBAL</md-radio-button>
+      <md-radio-button value="japan">JAPAN</md-radio-button>
+    </md-radio-group>
+    <div class="vertical-divider"></div>
+    <md-checkbox ng-model="barrel.format" ng-change="barrel.updateFormat">
+      Show Hours
+    </md-checkbox>
+  </div>
+  <md-data-table-container>
+    <table md-data-table md-row-selected="barrel.selected">
+      <thead md-order="barrel.query.order">
+        <tr>
+          <th name="Date"></th>
+          <!-- <th name="Wooden"></th> -->
+          <th name="Silver"></th>
+          <th name="Gold"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr md-auto-select ng-repeat="time in barrel.barrelTimes">
+          <td>
+            <div layout="column">
+              <div>{{time.date}}</div>
+              <div ng-show="barrel.format">{{time.hourDisplay}}</div>
+            </div>
+          </td>
+          <!-- <td>{{time.woodDigits}}</td> -->
+          <td>{{time.silverDigits}}</td>
+          <td>{{time.goldDigits}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-data-table-container>
 </md-content>
