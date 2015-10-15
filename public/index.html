@@ -32,7 +32,7 @@
 
 <body ng-controller="NavbarCtrl as nav">
   <md-content layout="row" layout-fill>
-    <md-sidenav layout="column" class="sidenav" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-sidenav layout="column" class="sidenav" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-swipe-left="nav.toggleSidenav()">
       <md-toolbar class="logo-container">
         <div class="logo-text">OPTC Timer</div>
       </md-toolbar>
