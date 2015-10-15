@@ -15,9 +15,9 @@
       setVersion: setVersion,
     };
 
-    let digit;
-    let timeFormat;
-    let version;
+    var digit;
+    var timeFormat;
+    var version;
     loadFromStorage();
 
     return services;
