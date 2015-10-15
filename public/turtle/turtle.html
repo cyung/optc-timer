@@ -1,0 +1,37 @@
+<md-content layout="column" flex layout-fill layout-align="start center">
+  <div class="timezone">Time Zone: {{turtle.timezone}}</div>
+  <md-input-container>
+    <label>6th Digit of ID</label>
+    <input type="number" class="digit-input" ng-model="turtle.digit" ng-change="turtle.updateDigit()" min="0" max="9">
+  </md-input-container>
+  <div layout="row" class="turtle-options" layout-align="center center">
+    <md-radio-group ng-model="turtle.timeFormat" ng-change="turtle.updateTimeFormat()">
+      <md-radio-button value="standard">Standard</md-radio-button>
+      <md-radio-button value="military">24-Hour</md-radio-button>
+    </md-radio-group>
+    <div class="vertical-divider"></div>
+    <md-radio-group ng-model="turtle.version" ng-change="turtle.updateVersion()" class="version-options">
+      <md-radio-button value="global">GLOBAL</md-radio-button>
+      <md-radio-button value="japan">JAPAN</md-radio-button>
+    </md-radio-group>
+  </div>
+  <md-list class="turtle-list" layout="column">
+    <md-item class="turtle-item" ng-repeat="turtleTime in turtle.turtleTimes">
+      <md-item-content>
+        <span class="turtle-date">{{turtleTime.date}}</span>
+        <span class="turtle-time">{{turtleTime.time}}</span>
+      </md-item-content>
+    </md-item>
+  </md-list>
+  <div class="inset">iOS/Android app coming out in a couple weeks!</div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- OPTC -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3283323307969871"
+       data-ad-slot="4539096540"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</md-content>

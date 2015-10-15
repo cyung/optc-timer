@@ -1,0 +1,117 @@
+/*===============================
+=            PALETTE            =
+===============================*/
+
+$primary-dark: #0288D1;
+$primary: #03A9F4;
+$primary-light: #B3E5FC;
+$text-icons: #FFFFFF;
+$accent: #009688;
+$text-primary: #212121;
+$text-secondary: #727272;
+$divider: #B6B6B6;
+$display: 'Righteous';
+$type: 'Lato';
+
+/*===============================
+=            TOP BAR            =
+===============================*/
+
+.top-bar {
+  height: 60px;
+  background-color: $primary-dark !important;
+}
+
+.menu-button {
+  height: 60px;
+  padding: 0;
+  margin: 0;
+}
+
+.logo-container {
+  padding: 5px;
+}
+
+.title {
+  font: 30px $display;
+  color: $text-icons;
+  padding-left: 5px;
+}
+
+/*===============================
+=            SIDENAV            =
+===============================*/
+
+.logo-container {
+  background-color: $primary !important;
+}
+
+.logo-text {
+  font: 30px $display;
+}
+
+md-list {
+  padding: 0 !important;
+}
+
+.sidenav {
+  background-color: $primary;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-item {
+  font: 26px $display;
+  color: $text-icons;
+}
+
+.active {
+  background-color: $primary-light;
+}
+
+/*==============================================
+=            TURTLE TIME CALCULATOR            =
+==============================================*/
+
+.timezone {
+  margin: 20px 0 10px 0;
+  font: 20px $type;
+}
+
+.digit-input {
+  width: 180px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.turtle-options {
+  height: 100px;
+}
+
+.vertical-divider {
+  border-left:1px solid #38546d; 
+  border-right:1px solid #16222c; 
+  height: 80%;
+}
+
+.version-options {
+  margin-left: 10px;
+}
+
+.turtle-item {
+  margin-bottom: 5px;
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.turtle-date {
+  font: 20px $type;
+  margin-right: 50px;
+}
+
+.turtle-time {
+  font: 20px $type;
+}

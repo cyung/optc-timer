@@ -1,9 +1,4 @@
-public/css/.sass-cache/
-public/css/bootstrap.css.map
-public/css/main.css.map
-public/vendor/
-public/process.php
-public/composer.json
-public/composer.lock
-public/app/lib/bower_components
+.sass-cache
+public/lib/bower_components
+public_old
 node_modules

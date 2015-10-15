@@ -10,9 +10,8 @@
   "moduleType": [],
   "license": "MIT",
   "dependencies": {
-    "angular-material": "~0.11.3",
     "angular-animate": "~1.4.7",
-    "angular-bootstrap": "~0.14.1",
-    "moment": "momentjs#~2.10.6"
+    "angular-local-storage": "~0.2.3",
+    "moment": "~2.10.6"
   }
 }
