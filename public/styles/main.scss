@@ -143,3 +143,21 @@ md-list {
 .turtle-options {
   height: 100px;
 }
+
+.table-header {
+  font-family: $type;
+}
+
+.table-item {
+  font-family: $type;
+}
+
+@media (min-width: 960px) {
+  .table-header {
+    font-size: 30px !important;
+  }
+
+  .table-item {
+    font-size: 25px !important;
+  }
+}

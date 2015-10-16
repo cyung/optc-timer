@@ -56,7 +56,6 @@
         var silverDigits = silver.slice(index1, index1+4);
         var goldDigits = gold.slice(index2, index2+2);
         var date = startOfDay.format('YYYY-MM-DD');
-        console.log('date =', date);
 
         return {
           date: date,

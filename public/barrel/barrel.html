@@ -13,23 +13,23 @@
     <table md-data-table>
       <thead>
         <tr>
-          <th name="Date"></th>
-          <!-- <th name="Wooden"></th> -->
-          <th name="Silver"></th>
-          <th name="Gold"></th>
+          <th name="Date" class="table-header"></th>
+          <th name="Wooden" class="table-header" ng-show="barrel.isLargeScreen()"></th>
+          <th name="Silver" class="table-header"></th>
+          <th name="Gold" class="table-header"></th>
         </tr>
       </thead>
       <tbody>
         <tr md-auto-select ng-repeat="time in barrel.barrelTimes">
-          <td>
+          <td class="table-item">
             <div layout="column">
               <div>{{time.date}}</div>
               <div ng-show="barrel.format">{{time.hourDisplay}}</div>
             </div>
           </td>
-          <!-- <td>{{time.woodDigits}}</td> -->
-          <td>{{time.silverDigits}}</td>
-          <td>{{time.goldDigits}}</td>
+          <td class="table-item" ng-show="barrel.isLargeScreen()">{{time.woodDigits}}</td>
+          <td class="table-item">{{time.silverDigits}}</td>
+          <td class="table-item">{{time.goldDigits}}</td>
         </tr>
       </tbody>
     </table>
