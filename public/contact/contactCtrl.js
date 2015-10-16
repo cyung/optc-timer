@@ -7,7 +7,12 @@
   function contactCtrl() {
     var self = this;
 
-    
+    self.message = {
+      name: '',
+      email: '',
+      subject: '',
+      version: '',
+    }
   }
 
 })();

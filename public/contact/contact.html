@@ -1,1 +1,16 @@
-<div>CONTACT</div>
+<md-content layout="column" flex layout-align="start center">
+  <form name="contactForm">
+    <md-input-container>
+      <label>Name</label>
+      <input type="text" name="name" md-maxlength="30" ng-model="contact.message.name" required>
+      <div ng-messages="contactForm.name.$error" ng-show="contactForm.$touched || contactForm.$submitted">
+        <div ng-message="required">Enter a name.</div>
+        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+      </div>
+    </md-input-container>
+    <md-input-container>
+      <label>Email</label>
+      <input type="email" name="name" md-maxlength="30" ng-model="formName.email" required>
+    </md-input-container>
+  </form>
+</md-content>

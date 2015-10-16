@@ -10,8 +10,8 @@ $accent: #009688;
 $text-primary: #212121;
 $text-secondary: #727272;
 $divider: #B6B6B6;
-$display: 'Righteous';
-$type: 'Lato';
+$display: 'Lato';
+$type: 'Roboto';
 
 /*===============================
 =            TOP BAR            =
@@ -75,6 +75,7 @@ md-list {
 =            TURTLE TIME CALCULATOR            =
 ==============================================*/
 
+
 .timezone {
   margin: 20px 0 10px 0;
   font: 20px $type;
@@ -114,6 +115,25 @@ md-list {
 
 .turtle-time {
   font: 20px $type;
+}
+
+@media (min-width: 960px) {
+  .timezone {
+    font-size: 48px;
+  }
+
+  .digit-input {
+    width: 240px;
+    font-size: 40px;
+  }
+
+  .turtle-date {
+    font-size: 36px;
+  }
+
+  .turtle-time {
+    font-size: 36px;
+  }
 }
 
 /*=======================================

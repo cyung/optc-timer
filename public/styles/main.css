@@ -17,7 +17,7 @@
   padding: 5px; }
 
 .title {
-  font: 30px "Righteous";
+  font: 30px "Lato";
   color: #FFFFFF;
   padding-left: 5px; }
 
@@ -28,7 +28,7 @@
   background-color: #03A9F4 !important; }
 
 .logo-text {
-  font: 30px "Righteous"; }
+  font: 30px "Lato"; }
 
 md-list {
   padding: 0 !important; }
@@ -40,7 +40,7 @@ md-list {
   text-decoration: none; }
 
 .nav-item {
-  font: 26px "Righteous";
+  font: 26px "Lato";
   color: #FFFFFF; }
 
 .active {
@@ -51,7 +51,7 @@ md-list {
 ==============================================*/
 .timezone {
   margin: 20px 0 10px 0;
-  font: 20px "Lato"; }
+  font: 20px "Roboto"; }
 
 .digit-input {
   width: 180px;
@@ -75,12 +75,25 @@ md-list {
     margin-bottom: 0 !important; }
 
 .turtle-date {
-  font: 20px "Lato";
+  font: 20px "Roboto";
   margin-right: 50px; }
 
 .turtle-time {
-  font: 20px "Lato"; }
+  font: 20px "Roboto"; }
 
+@media (min-width: 960px) {
+  .timezone {
+    font-size: 48px; }
+
+  .digit-input {
+    width: 240px;
+    font-size: 40px; }
+
+  .turtle-date {
+    font-size: 36px; }
+
+  .turtle-time {
+    font-size: 36px; } }
 /*=======================================
 =            BARREL BREAKING            =
 =======================================*/

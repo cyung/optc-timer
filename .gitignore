@@ -2,3 +2,4 @@
 public/lib/bower_components
 public_old
 node_modules
+*.css.map
