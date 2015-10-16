@@ -144,22 +144,46 @@ md-list {
   height: 100px;
 }
 
-.table-header {
+.barrel-table-header {
   font-family: $type;
   font-size: 20px !important;
 }
 
-.table-item {
+.barrel-table-item {
   font-family: $type;
   font-size: 16px !important;
 }
 
 @media (min-width: 960px) {
-  .table-header {
+  .barrel-table-header {
     font-size: 30px !important;
   }
 
-  .table-item {
+  .barrel-table-item {
     font-size: 25px !important;
+  }
+}
+
+/*==============================
+=            EVENTS            =
+==============================*/
+
+.event-table-header {
+  font-size: 30px !important;
+}
+
+.event-table-item {
+  font-size: 25px !important;
+}
+
+@media(max-width: 959px) {
+  .event-table-header {
+    padding: 0 5px !important;
+    font-size: 14px !important;
+  }
+
+  .event-table-item {
+    padding: 0 5px !important;
+    font-size: 14px !important;
   }
 }

@@ -14,13 +14,13 @@
       self.barrelTimes = barrelFactory.getBarrelTimes();
     }
 
-    self.isLargeScreen = function() {
-      return $mdMedia('gt-md');
-    };
-
     self.updateVersion = function() {
       userFactory.setVersion(self.version);
       self.barrelTimes = barrelFactory.getBarrelTimes();
+    };
+
+    self.isLargeScreen = function() {
+      return $mdMedia('gt-md');
     };
   }
 

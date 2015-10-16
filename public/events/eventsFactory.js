@@ -44,9 +44,9 @@
         var offset = dayNum + dayOfYear + 3;
         offset = offset % 7;
 
-        var drop = dropTable[offset];
-        var stamina = staminaTable[offset];
-        var beli = beliTable[offset];
+        var drop = dropTable[offset].split(',');
+        var stamina = staminaTable[offset].split(',');
+        var beli = beliTable[offset].split(',');
         var date = start.clone().add(dayNum, 'days').format('YYYY-MM-DD');
 
         return {

@@ -9,16 +9,24 @@
     <table md-data-table md-row-selected="event.selected">
       <thead md-order="barrel.query.order">
         <tr>
-          <th name="Date"></th>
-          <th name="2x Drop"></th>
-          <th name="1/2 Stamina"></th>
+          <th name="Date" class="event-table-header"></th>
+          <th name="2x Drop" class="event-table-header"></th>
+          <th name="1/2 Stamina" class="event-table-header"></th>
+          <th name="2x Beli" class="event-table-header" ng-show="events.isLargeScreen()"></th>
         </tr>
       </thead>
       <tbody>
         <tr md-auto-select ng-repeat="time in events.eventTimes">
-          <td>{{time.date}}</td>
-          <td>{{time.drop}}</td>
-          <td>{{time.stamina}}</td>
+          <td class="event-table-item">{{time.date}}</td>
+          <td class="event-table-item">
+            <div ng-repeat="island in time.drop">{{island}}</div>
+          </td>
+          <td class="event-table-item">
+            <div ng-repeat="island in time.stamina">{{island}}</div>
+          </td>
+          <td class="event-table-item" ng-show="events.isLargeScreen()">
+            <div ng-repeat="island in time.beli">{{island}}</div>
+          </td>
         </tr>
       </tbody>
     </table>
