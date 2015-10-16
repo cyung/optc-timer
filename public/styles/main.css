@@ -101,10 +101,12 @@ md-list {
   height: 100px; }
 
 .table-header {
-  font-family: "Roboto"; }
+  font-family: "Roboto";
+  font-size: 20px !important; }
 
 .table-item {
-  font-family: "Roboto"; }
+  font-family: "Roboto";
+  font-size: 16px !important; }
 
 @media (min-width: 960px) {
   .table-header {
