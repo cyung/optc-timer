@@ -4,6 +4,8 @@
   angular.module('app')
   .factory('timeFactory', timeFactory);
 
+  timeFactory.$inject = ['userFactory'];
+
   function timeFactory(userFactory) {
     var services = {
       getTurtleTimes: getTurtleTimes,

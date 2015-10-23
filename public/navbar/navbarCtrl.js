@@ -4,6 +4,8 @@
   angular.module('app')
   .controller('NavbarCtrl', navbarCtrl);
 
+  navbarCtrl.$inject = ['$state', '$mdSidenav'];
+
   function navbarCtrl($state, $mdSidenav) {
     var self = this;
 

@@ -1,0 +1,8 @@
+{  
+  "name": "OPTC Timer",  
+  "short_name": "OPTC Timer",  
+  "start_url": "/index.html?homescreen=1",
+  "display": "standalone",  
+  "gcm_sender_id": "947491225542",  
+  "gcm_user_visible_only": true  
+}

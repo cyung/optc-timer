@@ -4,6 +4,8 @@
   angular.module('app')
   .controller('BarrelCtrl', barrelCtrl);
 
+  barrelCtrl.$inject = ['$mdMedia', 'userFactory', 'barrelFactory'];
+
   function barrelCtrl($mdMedia, userFactory, barrelFactory) {
     var self = this;
 

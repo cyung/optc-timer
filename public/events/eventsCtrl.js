@@ -4,6 +4,8 @@
   angular.module('app')
   .controller('EventsCtrl', eventsCtrl);
 
+  eventsCtrl.$inject = ['$mdMedia', 'userFactory', 'eventsFactory'];
+  
   function eventsCtrl($mdMedia, userFactory, eventsFactory) {
     var self = this;
 

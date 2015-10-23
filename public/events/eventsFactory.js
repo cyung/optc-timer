@@ -4,6 +4,8 @@
   angular.module('app')
   .factory('eventsFactory', eventsFactory);
 
+  eventsFactory.$inject = ['userFactory'];
+
   function eventsFactory(userFactory) {
     var services = {
       getEventTimes: getEventTimes

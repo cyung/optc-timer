@@ -176,7 +176,7 @@ md-list {
   font-size: 25px !important;
 }
 
-@media(max-width: 959px) {
+@media (max-width: 959px) {
   .event-table-header {
     padding: 0 5px !important;
     font-size: 14px !important;
@@ -185,5 +185,19 @@ md-list {
   .event-table-item {
     padding: 0 5px !important;
     font-size: 14px !important;
+  }
+}
+
+/*================================
+=            SETTINGS            =
+================================*/
+
+.settings-label {
+  font-family: $display;
+}
+
+@media (min-width: 960px) {
+  .settings-label {
+    font: 30px $display;
   }
 }

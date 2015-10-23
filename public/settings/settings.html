@@ -1,1 +1,10 @@
-<div>SETTINGS</div>
+<md-content layout="column" flex layout-align="start center">
+  <div layout="row" layout-align="start center">
+    <div class="settings-label">Time Format:</div>
+    <md-radio-group ng-model="turtle.timeFormat" ng-change="turtle.updateTimeFormat()">
+      <md-radio-button value="standard">Standard</md-radio-button>
+      <md-radio-button value="military">24-Hour</md-radio-button>
+    </md-radio-group>
+    
+  </div>
+</md-content>

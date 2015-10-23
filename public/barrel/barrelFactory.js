@@ -4,6 +4,8 @@
   angular.module('app')
   .factory('barrelFactory', barrelFactory);
 
+  barrelFactory.$inject = ['userFactory'];
+
   function barrelFactory(userFactory) {
     var services = {
       getBarrelTimes: getBarrelTimes
