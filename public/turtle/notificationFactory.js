@@ -31,7 +31,7 @@
       }
 
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register()
+        // navigator.serviceWorker.register()
       }
       return true;
     }
