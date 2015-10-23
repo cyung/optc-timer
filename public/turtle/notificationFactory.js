@@ -15,6 +15,9 @@
     return services;
 
     function checkPermissions() {
+      if (typeof ServiceWorkerRegistration === 'undefined')
+        return false;
+
       if (!('showNotification' in ServiceWorkerRegistration.prototype)) {
         console.warn('Notifications are not supported.');
         return false;
