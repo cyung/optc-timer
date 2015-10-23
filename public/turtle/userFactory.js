@@ -5,7 +5,7 @@
   .factory('userFactory', userFactory);
 
   function userFactory(localStorageService) {
-    const services = {
+    var services = {
       getTimeZone: getTimeZone,
       getDigit: getDigit,
       setDigit: setDigit,
