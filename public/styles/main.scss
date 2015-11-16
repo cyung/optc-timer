@@ -119,20 +119,20 @@ md-list {
 
 @media (min-width: 960px) {
   .timezone {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   .digit-input {
     width: 240px;
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .turtle-date {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .turtle-time {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
@@ -169,22 +169,23 @@ md-list {
 ==============================*/
 
 .event-table-header {
-  font-size: 30px !important;
+  padding: 0 5px !important;
+  font-size: 14px !important;
 }
 
 .event-table-item {
-  font-size: 25px !important;
+  padding: 0 5px !important;
+  font-size: 14px !important;
 }
 
-@media (max-width: 959px) {
+
+@media (min-width: 960px) {
   .event-table-header {
-    padding: 0 5px !important;
-    font-size: 14px !important;
+    font-size: 30px !important;
   }
 
   .event-table-item {
-    padding: 0 5px !important;
-    font-size: 14px !important;
+    font-size: 25px !important;
   }
 }
 

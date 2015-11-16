@@ -10,7 +10,7 @@
       <md-radio-button value="japan">JAPAN</md-radio-button>
     </md-radio-group>
     <div class="vertical-divider"></div>
-    <md-switch ng-model="turtle.notifStatus" ng-disabled="!turtle.notifPermissions">Notifications
+    <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.updateNotificationStatus()">Notifications
     </md-switch>
   </div>
   <md-list class="turtle-list" layout="column">

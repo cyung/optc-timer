@@ -17,7 +17,9 @@
       self.timeFormat = userFactory.getTimeFormat();
       self.version = userFactory.getVersion();
       self.turtleTimes = timeFactory.getTurtleTimes();
-      self.notifPermissions = notificationFactory.checkPermissions();
+      // self.notificationStatus = userFactory.getNotificationStatus();
+      self.notificationStatus = false;
+      self.notificationEnabled = notificationFactory.checkNotificationEnabled();
     }
     
     self.updateDigit = function() {
@@ -34,6 +36,21 @@
       userFactory.setVersion(self.version);
       self.turtleTimes = timeFactory.getTurtleTimes();
     };
+
+    self.updateNotificationStatus = function() {
+      console.log('self.notificationStatus =', self.notificationStatus);
+      if (!self.notificationStatus)
+        return;
+
+      console.log('toggling push');
+      self.notificationEnabled = false;
+      notificationFactory.togglePush(function(notificationStatus) {
+        console.log('toggled push');
+        self.notificationStatus = notificationStatus;
+        userFactory.setNotificationStatus(self.notificationStatus);
+        self.notificationEnabled = true;
+      });
+    }
   }
 
 })();

@@ -13,11 +13,14 @@
       setTimeFormat: setTimeFormat,
       getVersion: getVersion,
       setVersion: setVersion,
+      getNotificationStatus: getNotificationStatus,
+      setNotificationStatus: setNotificationStatus,
     };
 
     var digit;
     var timeFormat;
     var version;
+    var notificationStatus;
     loadFromStorage();
 
     return services;
@@ -26,6 +29,7 @@
       digit = localStorageService.get('digit') || 0;
       timeFormat = localStorageService.get('timeFormat') || 'standard';
       version = localStorageService.get('version') || 'global';
+      notificationStatus = localStorageService.get('notificationStatus') || false;
     }
 
     function getTimeZone() {
@@ -57,6 +61,14 @@
     function setVersion(v) {
       version = v;
       localStorageService.set('version', v);
+    }
+
+    function getNotificationStatus() {
+      return notificationStatus;
+    }
+
+    function setNotificationStatus(n) {
+      notificationStatus = n;
     }
   }
 
