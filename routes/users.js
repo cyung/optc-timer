@@ -7,10 +7,10 @@ var key = require('../config.json').GCM_KEY;
 router.post('/', function(req, res, next) {
   var endpoint = req.body.endpoint;
   var registrationId = req.body.registrationId;
-  console.log('endpoint =', endpoint);
-  console.log('registrationId =', registrationId);
+  
   // User.insert({
   //   endpoint: endpoint,
+  //   registrationId: registrationId,
   //   digit: 0,
   // });
 

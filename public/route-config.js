@@ -55,6 +55,15 @@
         data: {
           title: 'Settings'
         }
+      })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'admin/admin.html',
+        controller: 'AdminCtrl',
+        controllerAs: 'admin',
+        data: {
+          title: 'Admin'
+        }
       });
 
   }
