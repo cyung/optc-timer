@@ -106,7 +106,7 @@
 
       $http.post('http://localhost:3000/users', data)
       .then(function success() {
-        console.log('posted subscription to srever');
+        console.log('posted subscription to server');
       })
       .catch(function error() {
         console.log('error posting subscription to server');

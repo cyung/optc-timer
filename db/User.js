@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   endpoint:  String,
+  registrationId: String,
   digit: Number,
 });
 
