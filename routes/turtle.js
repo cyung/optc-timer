@@ -9,18 +9,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/date', function(req, res, next) {
-  console.log('req.body =', req.body);
+  var turtleDate = req.body.turtleDate;
+  console.log('turtleDate =', turtleDate);
+  console.log('moment.utc(+turtleDate) =', moment.utc(+turtleDate));
+  console.log('new Date(+turtleDate) =', new Date(+turtleDate));
   res.sendStatus(200);
 
   return;
-  var turtleDate = req.body.turtleDate;
-  if (isNaN(turtleDate.getTime())) {
-    console.log('Not a valid time');
-    res.sendStatus(400);
-    return;
-  }
+});
 
-  // TurtleDate.find
+router.delete('/date', function(req, res, next) {
+  console.log('req.body =', req.body);
+  res.sendStatus(200);
+  return;
+
 
 });
 
