@@ -14,28 +14,35 @@
     function setParams() {
       self.timezone = userFactory.getTimeZone();
       self.digit = userFactory.getDigit();
-      self.timeFormat = userFactory.getTimeFormat();
       self.version = userFactory.getVersion();
-      self.turtleTimes = timeFactory.getTurtleTimes();
+      self.turtleTimes = [];
       // self.notificationStatus = userFactory.getNotificationStatus();
       self.notificationStatus = false;
       self.notificationEnabled = notificationFactory.checkNotificationEnabled();
+      getTurtleTimes();
     }
-    
+
+    function getTurtleTimes() {
+      timeFactory.getTurtleTimes(function(err, turtleTimes) {
+        if (err) {
+          console.log('unable to retrieve times');
+          return;
+        }
+
+        self.turtleTimes = turtleTimes;
+      });
+    }
+
     self.updateDigit = function() {
       userFactory.setDigit(self.digit);
-      self.turtleTimes = timeFactory.getTurtleTimes();
-    };
-
-    self.updateTimeFormat = function() {
-      userFactory.setTimeFormat(self.timeFormat);
-      self.turtleTimes = timeFactory.getTurtleTimes();
+      getTurtleTimes();
     };
 
     self.updateVersion = function() {
       userFactory.setVersion(self.version);
-      self.turtleTimes = timeFactory.getTurtleTimes();
+      getTurtleTimes();
     };
+
 
     self.updateNotificationStatus = function() {
       console.log('self.notificationStatus =', self.notificationStatus);

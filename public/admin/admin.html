@@ -1,1 +1,44 @@
-<md-datepicker ng-model="admin.turtleDate" ng-change="admin.addDate()"></md-datepicker>
+<div layout="column" layout-align="start center" layout-fill>
+  <div class="section-header">Turtle Time Manager</div>
+  <div layout="row" class="manager-options">
+    <md-datepicker ng-model="admin.turtleDate" class="manager-datepicker"></md-datepicker>
+    <div layout="column">
+      <md-button ng-click="admin.addDate('global')" class="md-raised md-primary manager-button">Add Global</md-button>
+      <md-button ng-click="admin.addDate('japan')" class="md-raised md-primary manager-button">Add Japan</md-button>
+    </div>
+    <div layout="column">
+      <md-button ng-click="admin.addQuarter()" class="md-raised md-primary manager-button">Add Quarter</md-button>
+      <md-button ng-click="admin.removeSelectedDates()" class="md-raised md-warn manager-button">Remove Selected</md-button>
+    </div>
+  </div>
+  <md-card layout="row">
+    <md-data-table-container>
+      <table md-data-table class="md-primary" md-row-select="admin.globalSelected">
+        <thead>
+          <tr>
+            <th name="Global"</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr md-auto-select ng-repeat="turtleDate in admin.globalDates">
+            <td>{{turtleDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-data-table-container>
+    <md-data-table-container>
+      <table md-data-table class="md-primary" md-row-select="admin.japanSelected">
+        <thead>
+          <tr>
+            <th name="Japan"</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr md-auto-select ng-repeat="turtleDate in admin.japanDates">
+            <td>{{turtleDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-data-table-container>
+  </md-card>
+</div>

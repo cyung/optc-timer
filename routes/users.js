@@ -30,43 +30,18 @@ router.post('/', function(req, res, next) {
       res.sendStatus(200);
     });
   });
+});
 
-  // new User({
-  //   endpoint: endpoint,
-  //   registrationId: registrationId,
-  //   digit: 0,
-  // }).save(function(err) {
-  //   if (err) throw err;
+router.delete('/', function(req, res, next) {
+  User.remove({}, function(err) {
+    if (err) {
+      console.log('unable to remove users');
+      return res.sendStatus(400);
+    }
 
-  //   console.log('successfully saved user');
-  // })
-  
-  // User.insert({
-  //   endpoint: endpoint,
-  //   registrationId: registrationId,
-  //   digit: 0,
-  // });
-
-
-
-  // var options = {
-  //   url: endpoint,
-  //   headers: {
-  //     'Authorization': 'key=' + key,
-  //   },
-  //   json: {
-  //     registration_ids: [registrationId],
-  //   },
-  // };
-
-  // request.post(options, function(err, response, body) {
-  //   if (err) {
-  //     console.log('err =', err);
-  //     console.log('body =', body);
-  //     return;
-  //   }
-  //   // console.log('body =', body);
-  // });
+    console.log('removed users');
+    res.sendStatus(200);
+  })
 });
 
 module.exports = router;

@@ -10,24 +10,25 @@
       <md-radio-button value="japan">JAPAN</md-radio-button>
     </md-radio-group>
     <div class="vertical-divider"></div>
-    <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.updateNotificationStatus()">Notifications
+    <div layout="column">
+      <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.updateNotificationStatus()">Notifications
+    </div>
     </md-switch>
   </div>
-  <md-list class="turtle-list" layout="column">
-    <md-item class="turtle-item" ng-repeat="turtleTime in turtle.turtleTimes">
-      <md-item-content>
-        <span class="turtle-date">{{turtleTime.date}}</span>
-        <span class="turtle-time">{{turtleTime.time}}</span>
-      </md-item-content>
-    </md-item>
-  </md-list>
-  <div class="inset">iOS/Android app coming out in a couple weeks!</div>
+  <md-card class="turtle-card">
+    <md-list class="turtle-list" layout="column">
+      <md-item class="turtle-item" ng-repeat="turtleTime in turtle.turtleTimes">
+        <md-item-content layout="row" layout-align="start center" layout-wrap>
+          <span class="turtle-date">{{turtleTime.date}}</span>
+          <span flex></span>
+          <span class="turtle-time">{{turtleTime.time}}</span>
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </md-card>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- OPTC Timer -->
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:320px;height:100px"
-       data-ad-client="ca-pub-3283323307969871"
-       data-ad-slot="3604296541"></ins>
+  <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-3283323307969871" data-ad-slot="3604296541"></ins>
   <script>
   (adsbygoogle = window.adsbygoogle || []).push({});
   </script>

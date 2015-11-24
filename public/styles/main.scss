@@ -29,13 +29,13 @@ $type: 'Roboto';
 }
 
 .logo-container {
-  padding: 5px;
+  padding: 10px;
 }
 
 .title {
   font: 30px $display;
   color: $text-icons;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 /*===============================
@@ -102,19 +102,27 @@ md-list {
 }
 
 .turtle-item {
-  margin-bottom: 5px;
-  &:last-child {
-    margin-bottom: 0 !important;
+  padding: 4px 8px;
+
+  &:nth-child(odd) {
+    background-color: #eee;
   }
 }
 
 .turtle-date {
   font: 20px $type;
-  margin-right: 50px;
 }
 
 .turtle-time {
   font: 20px $type;
+}
+
+.turtle-card {
+  width: 75vw;
+}
+
+.turtle-list {
+  width: 100%;
 }
 
 @media (min-width: 960px) {
@@ -125,6 +133,10 @@ md-list {
   .digit-input {
     width: 240px;
     font-size: 32px;
+  }
+
+  .turtle-card {
+    width: 55vw;
   }
 
   .turtle-date {
@@ -139,10 +151,6 @@ md-list {
 /*=======================================
 =            BARREL BREAKING            =
 =======================================*/
-
-.turtle-options {
-  height: 100px;
-}
 
 .barrel-table-header {
   font-family: $type;
@@ -201,4 +209,30 @@ md-list {
   .settings-label {
     font: 30px $display;
   }
+}
+
+/*=============================
+=            ADMIN            =
+=============================*/
+
+.md-datepicker-calendar-pane {
+  background-color: #FFF;
+}
+
+.section-header {
+  font: $display;
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+.manager-options {
+  padding-bottom: 10px;
+}
+
+.manager-button {
+  padding: 2px 10px;
+}
+
+.manager-datepicker {
+  padding: 5px;
 }
