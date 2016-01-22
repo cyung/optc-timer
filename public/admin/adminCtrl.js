@@ -57,6 +57,41 @@
       });
     };
 
+    self.removePastDates = function() {
+      var oldDates = getPastDates('global').concat(getPastDates('japan'));
+
+      console.log('oldDates =', oldDates);
+      adminFactory.removeTurtleDates(oldDates, function(err) {
+        if (err) {
+          console.log('err =', err);
+          return;
+        }
+
+        console.log('removed old dates');
+
+        activate();
+      });
+
+      function getPastDates(version) {
+        var oldDates = (version === 'global') ? 
+          self.globalDates.slice().reverse() : self.japanDates.slice().reverse();
+
+        var oldDates = oldDates.filter(function(date) {
+          return moment.utc(date).add(1, 'days').isBefore(moment.utc())
+        }).map(function(date) {
+          return {
+            turtleDate: date,
+            version: version,
+          };
+        });
+
+        // remove past dates in multiples of 5
+        oldDates = oldDates.slice(0, Math.floor(oldDates.length/5)*5);
+
+        return oldDates;
+      }
+    }
+
     self.addQuarter = function() {
       adminFactory.addQuarter(function(err) {
         if (err) {

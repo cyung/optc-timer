@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var subdomain = require('express-subdomain');
 var routes = require('./routes/index');
 var api = require('./routes/api');
 var users = require('./routes/users');
@@ -26,9 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', users);
-app.use('/turtle', turtle);
-app.use(subdomain('api', api));
+app.use('/', routes);
+app.use('/api', api);
+// app.use('/api/users', users);
+// app.use('/api/turtle', turtle);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

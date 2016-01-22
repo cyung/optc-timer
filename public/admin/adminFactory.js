@@ -4,9 +4,9 @@
   angular.module('app')
     .factory('adminFactory', adminFactory);
 
-  adminFactory.$inject = ['$http'];
+  adminFactory.$inject = ['$http', 'apiFactory'];
 
-  function adminFactory($http) {
+  function adminFactory($http, apiFactory) {
     var services = {
       addTurtleDate: addTurtleDate,
       addTurtleDates: addTurtleDates,
@@ -18,7 +18,7 @@
     return services;
 
     function getTurtleDates(cb) {
-      $http.get('http://localhost:3000/turtle/date')
+      $http.get(apiFactory.getBaseUrl() + '/api/turtle/date')
         .then(function success(response) {
           var globalDates = [];
           var japanDates = [];
@@ -81,7 +81,7 @@
 
     function addTurtleDate(dateString, version, cb) {
       var turtleDate = convertToUTC(dateString);
-      $http.post('http://localhost:3000/turtle/date', {
+      $http.post(apiFactory.getBaseUrl() + '/api/turtle/date', {
         turtleDate: turtleDate,
         version: version,
       }).then(function success() {
@@ -119,7 +119,7 @@
         params: turtleDate,
       };
 
-      $http.delete('http://localhost:3000/turtle/date', params)
+      $http.delete(apiFactory.getBaseUrl() + '/api/turtle/date', params)
       .then(function success() {
         cb(null);
       }).catch(function error() {

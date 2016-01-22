@@ -4,9 +4,9 @@
   angular.module('app')
   .factory('notificationFactory', notificationFactory);
 
-  notificationFactory.$inject = ['$http', 'userFactory'];
+  notificationFactory.$inject = ['$http', 'userFactory', 'apiFactory'];
 
-  function notificationFactory($http, userFactory) {
+  function notificationFactory($http, userFactory, apiFactory) {
     var services = {
       checkNotificationEnabled: checkNotificationEnabled,
       togglePush: togglePush,
@@ -104,7 +104,7 @@
         registrationId: registrationId,
       };
 
-      $http.post('http://localhost:3000/users', data)
+      $http.post(apiFactory.getBaseUrl() + '/api/users', data)
       .then(function success() {
         console.log('posted subscription to server');
       })

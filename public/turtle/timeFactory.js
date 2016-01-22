@@ -4,9 +4,9 @@
   angular.module('app')
   .factory('timeFactory', timeFactory);
 
-  timeFactory.$inject = ['$http', 'userFactory'];
+  timeFactory.$inject = ['$http', 'userFactory', 'apiFactory'];
 
-  function timeFactory($http, userFactory) {
+  function timeFactory($http, userFactory, apiFactory) {
     var services = {
       getTurtleTimes: getTurtleTimes,
     };
@@ -28,7 +28,7 @@
         },
       }
 
-      $http.get('http://localhost:3000/turtle', params)
+      $http.get(apiFactory.getBaseUrl() + '/api/turtle', params)
       .then(function success(response) {
         var turtleTimes = getFormattedTimes(response.data);
         cb(null, turtleTimes);
