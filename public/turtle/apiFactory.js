@@ -17,8 +17,7 @@
       if (document.location.hostname == 'localhost')
         return 'http://localhost:3000';
       else
-        return 'http://localhost:3000';
-        // return 'https://optctimer.com';
+        return 'https://optctimer.com';
     }
   }
 
