@@ -4,9 +4,9 @@
   angular.module('app')
   .controller('TurtleCtrl', turtleCtrl);
 
-  turtleCtrl.$inject = ['$scope', 'userFactory', 'timeFactory', 'notificationFactory'];
+  turtleCtrl.$inject = ['$scope', 'userFactory', 'timeFactory', 'notificationFactory', 'htmlNotificationFactory'];
   
-  function turtleCtrl($scope, userFactory, timeFactory, notificationFactory) {
+  function turtleCtrl($scope, userFactory, timeFactory, notificationFactory, htmlNotificationFactory) {
     var self = this;
 
     setParams();
@@ -16,9 +16,10 @@
       self.digit = userFactory.getDigit();
       self.version = userFactory.getVersion();
       self.turtleTimes = [];
-      // self.notificationStatus = userFactory.getNotificationStatus();
-      self.notificationStatus = false;
-      self.notificationEnabled = notificationFactory.checkNotificationEnabled();
+      self.notificationStatus = userFactory.getNotificationStatus();
+      self.htmlNotificationStatus = userFactory.getHtmlNotificationStatus();
+      self.notificationEnabled = notificationFactory.checkEnabled();
+      self.htmlNotificationEnabled = htmlNotificationFactory.checkEnabled();
       getTurtleTimes();
     }
 
@@ -49,14 +50,25 @@
       if (!self.notificationStatus)
         return;
 
-      console.log('toggling push');
       self.notificationEnabled = false;
       notificationFactory.togglePush(function(notificationStatus) {
-        console.log('toggled push');
         self.notificationStatus = notificationStatus;
         userFactory.setNotificationStatus(self.notificationStatus);
         self.notificationEnabled = true;
       });
+    }
+
+    self.updateHtmlNotificationStatus = function() {
+      userFactory.setHtmlNotificationStatus(self.htmlNotificationStatus);
+      htmlNotificationFactory.setNotifications();
+    }
+
+    self.playExampleNotification = function() {
+      notificationFactory.playExample();
+    }
+
+    self.playExampleHtmlNotification = function() {
+      htmlNotificationFactory.playExample();
     }
   }
 

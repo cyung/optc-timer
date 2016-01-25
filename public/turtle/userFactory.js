@@ -15,12 +15,24 @@
       setVersion: setVersion,
       getNotificationStatus: getNotificationStatus,
       setNotificationStatus: setNotificationStatus,
+      getHtmlNotificationStatus: getHtmlNotificationStatus,
+      setHtmlNotificationStatus: setHtmlNotificationStatus,
+      getHtmlNotificationSoundStatus: getHtmlNotificationSoundStatus,
+      setHtmlNotificationSoundStatus: setHtmlNotificationSoundStatus,
+      getTurtleTimes: getTurtleTimes,
+      setTurtleTimes: setTurtleTimes,
+      getTimeBeforeNotification: getTimeBeforeNotification,
+      setTimeBeforeNotification: setTimeBeforeNotification,
     };
 
     var digit;
     var timeFormat;
     var version;
     var notificationStatus;
+    var htmlNotificationStatus;
+    var htmlNotificationSoundStatus;
+    var turtleTimes;
+    var timeBeforeNotification;
     loadFromStorage();
 
     return services;
@@ -29,7 +41,11 @@
       digit = localStorageService.get('digit') || 0;
       timeFormat = localStorageService.get('timeFormat') || 'standard';
       version = localStorageService.get('version') || 'global';
-      notificationStatus = localStorageService.get('notificationStatus') || false;
+      // notificationStatus = localStorageService.get('notificationStatus') || false;
+      notificationStatus = false;
+      htmlNotificationStatus = localStorageService.get('htmlNotificationStatus') || false;
+      htmlNotificationSoundStatus = localStorageService.get('htmlNotificationSoundStatus') || false;
+      timeBeforeNotification = localStorageService.get('timeBeforeNotification') || 10;
     }
 
     function getTimeZone() {
@@ -69,6 +85,43 @@
 
     function setNotificationStatus(n) {
       notificationStatus = n;
+      localStorageService.set('notificationStatus', n);
+    }
+
+    function getHtmlNotificationStatus() {
+      return htmlNotificationStatus;
+    }
+
+    function setHtmlNotificationStatus(h) {
+      htmlNotificationStatus = h;
+      localStorageService.set('htmlNotificationStatus', h);
+    }
+
+    function getTurtleTimes() {
+      return turtleTimes;
+    }
+
+    function setTurtleTimes(tt) {
+      turtleTimes = tt;
+    }
+
+    function getHtmlNotificationSoundStatus() {
+      return htmlNotificationSoundStatus;
+    }
+
+    function setHtmlNotificationSoundStatus(s) {
+      htmlNotificationSoundStatus = s;
+      localStorageService.set('htmlNotificationSoundStatus', s);
+    }
+
+    function getTimeBeforeNotification() {
+      console.log('timeBeforeNotification =', timeBeforeNotification);
+      return timeBeforeNotification;
+    }
+
+    function setTimeBeforeNotification(t) {
+      timeBeforeNotification = t;
+      localStorageService.set('timeBeforeNotification', t);
     }
   }
 

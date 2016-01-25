@@ -8,12 +8,13 @@
 
   function notificationFactory($http, userFactory, apiFactory) {
     var services = {
-      checkNotificationEnabled: checkNotificationEnabled,
+      checkEnabled: checkEnabled,
       togglePush: togglePush,
-
+      playExample: playExample,
     };
 
     var notificationEnabled = true;
+    var registrationId;
     setup();
 
 
@@ -29,7 +30,7 @@
       }
     }
 
-    function checkNotificationEnabled() {
+    function checkEnabled() {
       return notificationEnabled;
     }
 
@@ -77,7 +78,7 @@
             }
 
             // Keep your server in sync with the latest subscriptionId
-            sendSubscriptionToServer(subscription);
+            // sendSubscriptionToServer(subscription);
 
             // Set your UI to show they have subscribed for  
             // push messages  
@@ -92,7 +93,6 @@
 
     function sendSubscriptionToServer(subscription) {
       var endpoint = subscription.endpoint;
-      var registrationId = '';
 
       if (endpoint.match(/^https:\/\/android\.googleapis\.com\/gcm\/send/)) {
         registrationId = endpoint.match(/(?:.*?)send\/(.*)$/)[1];
@@ -114,7 +114,6 @@
     }
 
     function togglePush(cb) {
-      console.log('toggling push');
       navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {  
         console.log('serviceWorker is ready');
         serviceWorkerRegistration.pushManager.subscribe({
@@ -123,6 +122,7 @@
           .then(function(subscription) {  
             // The subscription was successful  
             console.log('subscription successful');
+            sendSubscriptionToServer(subscription);
             cb(true);
 
             // TODO: Send the subscription.endpoint to your server  
@@ -145,7 +145,23 @@
               cb(false);
             }
           });
-      });      
+      });
+    }
+
+    function playExample() {
+      var data = {
+        registrationId: registrationId,
+      };
+
+      console.log('data =', data);
+
+      $http.post(apiFactory.getBaseUrl() + '/api/gcm', data)
+      .then(function success() {
+        console.log('sent to server');
+      })
+      .catch(function error() {
+        console.log('error posting to server');
+      });
     }
 }
     

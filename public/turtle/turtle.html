@@ -11,9 +11,9 @@
     </md-radio-group>
     <div class="vertical-divider"></div>
     <div layout="column">
-      <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.updateNotificationStatus()">Notifications
+      <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.updateNotificationStatus()">Chrome (and Android) Notifications</md-switch>
+      <md-switch ng-model="turtle.htmlNotificationStatus" ng-disabled="!turtle.htmlNotificationEnabled" ng-change="turtle.updateHtmlNotificationStatus()")>HTML Notifications</md-switch>
     </div>
-    </md-switch>
   </div>
   <md-card class="turtle-card">
     <md-list class="turtle-list" layout="column">
@@ -26,6 +26,8 @@
       </md-item>
     </md-list>
   </md-card>
+  <md-button class="md-raised md-primary" ng-click="turtle.playExampleNotification()">Example Chrome Notification</md-button>
+  <md-button class="md-raised md-primary" ng-click="turtle.playExampleHtmlNotification()">Example HTML Notification</md-button>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- OPTC Timer -->
   <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-3283323307969871" data-ad-slot="3604296541"></ins>

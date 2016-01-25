@@ -1,10 +1,20 @@
 <md-content layout="column" flex layout-align="start center">
   <div layout="row" layout-align="start center">
-    <div class="settings-label">Time Format:</div>
-    <md-radio-group ng-model="settings.timeFormat" ng-change="settings.updateTimeFormat()">
+    <span class="settings-label">Time Format:</span>
+    <md-radio-group layout="row" ng-model="settings.timeFormat" ng-change="settings.setTimeFormat()">
       <md-radio-button value="standard">Standard</md-radio-button>
       <md-radio-button value="military">24-Hour</md-radio-button>
     </md-radio-group>
-    
+  </div>
+  <div layout="row" layout-align="start center">
+    <span class="settings-label">HTML Notification Sound:</span>
+    <md-switch ng-model="settings.htmlNotificationSoundStatus" ng-change="settings.setHtmlNotificationSoundStatus()"></md-switch>
+  </div>
+  <div layout="row" layout-align="start center">
+    <span class="settings-label">Time Before Notification:</span>
+    <md-input-container>
+      <label>Minutes</label>
+      <input type="number" class="digit-input" ng-model="settings.timeBeforeNotification" ng-model="settings.timeBeforeNotification" ng-change="settings.updateTimeBefore()" min="0" max="1440">
+    </md-input-container>
   </div>
 </md-content>

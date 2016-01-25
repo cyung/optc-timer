@@ -30,6 +30,9 @@
 
       $http.get(apiFactory.getBaseUrl() + '/api/turtle', params)
       .then(function success(response) {
+        userFactory.setTurtleTimes(response.data.map(function(time) {
+          return moment.utc(time);
+        }));
         var turtleTimes = getFormattedTimes(response.data);
         cb(null, turtleTimes);
       }).catch(function error(err) {
@@ -43,7 +46,6 @@
       return turtleTimes.map(function(timeStr) {
         var time, date;
         var turtleTime = moment.utc(timeStr);
-        console.log('turtleTime =', turtleTime);
 
         if (timeFormat === 'standard')
           time = turtleTime.local().format('h:mm a');
