@@ -18,13 +18,13 @@ router.post('/', function(req, res, next) {
       to: registrationId,
     },
 
-  }, function(err, res, body) {
+  }, function(err, result, body) {
     if (err) {
       console.log('error posting to body');
-      return res.status(400);
+      return res.status(400).send('error');
     }
 
-    res.status(200);
+    res.status(200).send('sent');
   });
 });
 
