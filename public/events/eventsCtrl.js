@@ -14,7 +14,7 @@
     function setParams() {
       self.version = userFactory.getVersion();
       self.eventTimes = eventsFactory.getEventTimes();
-      console.log('self.eventTimes =', self.eventTimes);
+      self.format = userFactory.getDetailedHourStatus();
     }
 
     self.updateVersion = function() {
@@ -25,6 +25,10 @@
     self.isLargeScreen = function() {
       return $mdMedia('gt-md');
     };
+
+    self.showHours = function() {
+      userFactory.setDetailedHourStatus(self.format);
+    }
   }
 
 })();

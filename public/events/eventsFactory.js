@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-  .factory('eventsFactory', eventsFactory);
+    .factory('eventsFactory', eventsFactory);
 
   eventsFactory.$inject = ['userFactory'];
 
@@ -39,20 +39,14 @@
         var beli = beliTable[offset].split(',');
         var startDate = start.clone().add(dayNum, 'days');
 
-        var date;
-
-        if (userFactory.getDetailedHourStatus()) {
-          var hourOffset = (version === 'global') ? 23 : 11;
-          var end = startDate.clone().add(hourOffset, 'hours').add(59, 'minutes');
-          date = startDate.format('YYYY-MM-DD') + ' ' 
-                  + startDate.format('HH:mm') + '-' 
-                  + end.format('HH:mm');
-        } else {
-          date = startDate.format('YYYY-MM-DD');
-        }
+        var hourOffset = (version === 'global') ? 23 : 11;
+        var end = startDate.clone().add(hourOffset, 'hours').add(59, 'minutes');
+        var date = startDate.format('YYYY-MM-DD');
+        var hourString = startDate.format('HH:mm') + '-' + end.format('HH:mm');
 
         return {
           date: date,
+          hourDisplay: hourString,
           drop: drop,
           stamina: stamina,
           beli: beli,

@@ -14,6 +14,7 @@
     function setParams() {
       self.version = userFactory.getVersion();
       self.barrelTimes = barrelFactory.getBarrelTimes();
+      self.format = userFactory.getDetailedHourStatus();
     }
 
     self.updateVersion = function() {
@@ -24,6 +25,10 @@
     self.isLargeScreen = function() {
       return $mdMedia('gt-md');
     };
+
+    self.showHours = function() {
+      userFactory.setDetailedHourStatus(self.format);
+    }
   }
 
 })();

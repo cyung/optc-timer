@@ -4,6 +4,10 @@
       <md-radio-button value="global">GLOBAL</md-radio-button>
       <md-radio-button value="japan">JAPAN</md-radio-button>
     </md-radio-group>
+    <div class="vertical-divider"></div>
+    <md-checkbox ng-model="events.format" ng-change="events.showHours()">
+      Show Hours
+    </md-checkbox>
   </div>
   <md-data-table-container>
     <table md-data-table md-row-selected="event.selected">
@@ -17,7 +21,12 @@
       </thead>
       <tbody>
         <tr md-auto-select ng-repeat="time in events.eventTimes">
-          <td class="event-table-item">{{time.date}}</td>
+          <td class="event-table-item">
+            <div layout="column">
+              <div>{{time.date}}</div>
+              <div ng-show="events.format">{{time.hourDisplay}}</div>
+            </div>
+          </td>
           <td class="event-table-item">
             <div ng-repeat="island in time.drop">{{island}}</div>
           </td>

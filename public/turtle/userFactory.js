@@ -49,7 +49,7 @@
       htmlNotificationStatus = localStorageService.get('htmlNotificationStatus') || false;
       htmlNotificationSoundStatus = localStorageService.get('htmlNotificationSoundStatus') || false;
       timeBeforeNotification = localStorageService.get('timeBeforeNotification') || 10;
-      detailedHourStatus = localStorageService.get('detailedHourStatus') || true;
+      detailedHourStatus = localStorageService.get('detailedHourStatus') || false;
     }
 
     function postUserData() {
@@ -150,6 +150,7 @@
     }
 
     function setDetailedHourStatus(d) {
+      console.log('setting status', d);
       detailedHourStatus = d;
       localStorageService.set('detailedHourStatus', d);
     }
