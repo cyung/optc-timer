@@ -5,23 +5,27 @@ var key = require('../config.json').GCM_KEY;
 
 router.post('/', function(req, res, next) {
   var registrationId = req.body.registrationId;
-  console.log('key =', key);
 
   request({
-    url: 'https://gcm-http.googleapis.com/gcm/send',
+    url: 'https://android.googleapis.com/gcm/send',
     method: 'POST',
     headers: {
+      'Authorization': 'key=' + key,
       'Content-Type': 'application/json',
-      'Authorization': key,
     },
     json: {
       to: registrationId,
+      notification: {
+        title: 'OPTC Timer',
+        body: '10 minutes until turtle time!',
+      }
     },
 
   }, function(err, result, body) {
+    console.log('body =', body);
     if (err) {
       console.log('error posting to body');
-      return res.status(400).send('error');
+      return res.status(400).send(err);
     }
 
     res.status(200).send('sent');

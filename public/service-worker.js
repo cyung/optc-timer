@@ -1,16 +1,14 @@
 self.addEventListener('push', function(event) {  
   console.log('Received a push message', event);
 
-  var title = 'Yay a message.';  
-  var body = 'We have received a push message.';  
-  var icon = 'images/profile.jpg';  
-  var tag = 'simple-push-demo-notification-tag';
+  var title = 'OPTC Timer';  
+  var body = 'Turtle time reminder';  
+  var icon = 'images/flag.png';  
 
   event.waitUntil(  
     self.registration.showNotification(title, {  
       body: body,
       icon: icon,
-      tag: tag  
-    })  
+    });
   );  
 });
