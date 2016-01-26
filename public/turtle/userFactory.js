@@ -25,6 +25,8 @@
       setTimeBeforeNotification: setTimeBeforeNotification,
       getRegistrationId: getRegistrationId,
       setRegistrationId: setRegistrationId,
+      getDetailedHourStatus: getDetailedHourStatus,
+      setDetailedHourStatus: setDetailedHourStatus,
     };
 
     var digit;
@@ -35,6 +37,7 @@
     var turtleTimes;
     var timeBeforeNotification;
     var registrationId;
+    var detailedHourStatus;
     loadFromStorage();
 
     return services;
@@ -46,6 +49,7 @@
       htmlNotificationStatus = localStorageService.get('htmlNotificationStatus') || false;
       htmlNotificationSoundStatus = localStorageService.get('htmlNotificationSoundStatus') || false;
       timeBeforeNotification = localStorageService.get('timeBeforeNotification') || 10;
+      detailedHourStatus = localStorageService.get('detailedHourStatus') || true;
     }
 
     function postUserData() {
@@ -139,6 +143,15 @@
     function setRegistrationId(r) {
       registrationId = r;
       postUserData(); 
+    }
+
+    function getDetailedHourStatus() {
+      return detailedHourStatus;
+    }
+
+    function setDetailedHourStatus(d) {
+      detailedHourStatus = d;
+      localStorageService.set('detailedHourStatus', d);
     }
   }
 
