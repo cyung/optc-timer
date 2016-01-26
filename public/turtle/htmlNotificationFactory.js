@@ -8,7 +8,7 @@
 
   function htmlNotificationFactory(userFactory) {
     var services = {
-      checkEnabled: checkEnabled,
+      isEnabled: isEnabled,
       setNotifications: setNotifications,
       playExample: playExample,
     };
@@ -18,7 +18,7 @@
 
     return services;
 
-    function checkEnabled() {
+    function isEnabled() {
       var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
       var mobileAndTabletCheck = function() {
         var check = false;

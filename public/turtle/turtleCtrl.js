@@ -16,11 +16,40 @@
       self.digit = userFactory.getDigit();
       self.version = userFactory.getVersion();
       self.turtleTimes = [];
-      self.notificationStatus = userFactory.getNotificationStatus();
+      self.notificationStatus = true;
       self.htmlNotificationStatus = userFactory.getHtmlNotificationStatus();
-      self.notificationEnabled = notificationFactory.checkEnabled();
-      self.htmlNotificationEnabled = htmlNotificationFactory.checkEnabled();
+      self.notificationEnabled = notificationFactory.isEnabled();
+      self.htmlNotificationEnabled = htmlNotificationFactory.isEnabled();
       getTurtleTimes();
+      toggleNotification();
+    }
+
+    function toggleNotification() {
+      if (self.notificationStatus) {
+        notificationFactory.subscribe(function(err) {
+          if (err) {
+            self.notificationStatus = false;
+            console.log(err);
+            return;
+          }
+
+          console.log('subscribed');
+        });
+      } else {
+        notificationFactory.unsubscribe(function(err) {
+          if (err) {
+            console.log(err);
+            self.notificationStatus = true;
+            return;
+          }
+
+          console.log('unsubscribed');
+        })
+      }      
+    }
+
+    self.toggleNotification = function() {
+      toggleNotification();
     }
 
     function getTurtleTimes() {
@@ -43,19 +72,6 @@
       userFactory.setVersion(self.version);
       getTurtleTimes();
     };
-
-
-    self.updateNotificationStatus = function() {
-      if (!self.notificationStatus)
-        return;
-
-      self.notificationEnabled = false;
-      notificationFactory.togglePush(function(notificationStatus) {
-        self.notificationStatus = notificationStatus;
-        userFactory.setNotificationStatus(self.notificationStatus);
-        self.notificationEnabled = true;
-      });
-    }
 
     self.updateHtmlNotificationStatus = function() {
       userFactory.setHtmlNotificationStatus(self.htmlNotificationStatus);
