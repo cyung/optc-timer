@@ -42,7 +42,8 @@
         var date;
 
         if (userFactory.getDetailedHourStatus()) {
-          var end = startDate.clone().add(23, 'hours').add(59, 'minutes');
+          var hourOffset = (version === 'global') ? 23 : 11;
+          var end = startDate.clone().add(hourOffset, 'hours').add(59, 'minutes');
           date = startDate.format('YYYY-MM-DD') + ' ' 
                   + startDate.format('HH:mm') + '-' 
                   + end.format('HH:mm');
