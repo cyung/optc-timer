@@ -5,30 +5,23 @@ var request = require('request');
 var key = require('../config.json').GCM_KEY;
 
 router.post('/', function(req, res, next) {
-  var endpoint = req.body.endpoint;
+  var digit = req.body.digit;
   var registrationId = req.body.registrationId;
 
+  var data = {
+    digit: digit,
+    registrationId: registrationId,
+  };
 
-  User.findOne({registrationId: registrationId}, function(err, user) {
-    if (user) {
-      console.log('existing user found');
-      // update user digit
+  User.findOneAndUpdate({registrationId: registrationId}, 
+    data, {upsert: true, new: true}, function(err, user) {
+      if (err) {
+        console.log('Error updating/creating user');
+        return res.sendStatus(400);
+      }
+
+      console.log('added/updated user: ', user);
       res.sendStatus(200);
-      return;
-    }
-
-    user = new User({
-      endpoint: endpoint,
-      registrationId: registrationId,
-      digit: 0,
-    });
-
-    user.save(function(err) {
-      if (err) throw err;
-
-      console.log('Inserted new user into database');
-      res.sendStatus(200);
-    });
   });
 });
 

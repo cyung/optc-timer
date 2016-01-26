@@ -4,7 +4,9 @@
   angular.module('app')
   .factory('userFactory', userFactory);
 
-  function userFactory(localStorageService) {
+  userFactory.$inject = ['localStorageService', '$http', 'apiFactory'];
+
+  function userFactory(localStorageService, $http, apiFactory) {
     var services = {
       getTimeZone: getTimeZone,
       getDigit: getDigit,
@@ -23,6 +25,8 @@
       setTurtleTimes: setTurtleTimes,
       getTimeBeforeNotification: getTimeBeforeNotification,
       setTimeBeforeNotification: setTimeBeforeNotification,
+      getRegistrationId: getRegistrationId,
+      setRegistrationId: setRegistrationId,
     };
 
     var digit;
@@ -33,6 +37,7 @@
     var htmlNotificationSoundStatus;
     var turtleTimes;
     var timeBeforeNotification;
+    var registrationId;
     loadFromStorage();
 
     return services;
@@ -48,6 +53,21 @@
       timeBeforeNotification = localStorageService.get('timeBeforeNotification') || 10;
     }
 
+    function postUserData() {
+      var data = {
+        digit: digit%5,
+        registrationId: registrationId,
+      };
+
+      $http.post(apiFactory.getBaseUrl() + '/api/users', data)
+      .then(function success() {
+        console.log('posted subscription to server');
+      })
+      .catch(function error() {
+        console.log('error posting subscription to server');
+      });
+    }
+
     function getTimeZone() {
       return jstz.determine().name();
     }
@@ -59,6 +79,7 @@
     function setDigit(d) {
       digit = d % 5;
       localStorageService.set('digit', d);
+      postUserData();
     }
 
     function getTimeFormat() {
@@ -115,13 +136,21 @@
     }
 
     function getTimeBeforeNotification() {
-      console.log('timeBeforeNotification =', timeBeforeNotification);
       return timeBeforeNotification;
     }
 
     function setTimeBeforeNotification(t) {
       timeBeforeNotification = t;
       localStorageService.set('timeBeforeNotification', t);
+    }
+
+    function getRegistrationId() {
+      return registrationId;
+    }
+
+    function setRegistrationId(r) {
+      registrationId = r;
+      postUserData(); 
     }
   }
 

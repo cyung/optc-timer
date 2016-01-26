@@ -73,7 +73,7 @@
       
       var options = {
         body: minutes + ' minutes till Turtle Time!',
-        icon: 'favicon.ico'
+        icon: '../images/flag.png'
       };
 
       var instance = new Notification("OPTC Turtle Time", options);

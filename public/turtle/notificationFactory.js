@@ -16,7 +16,6 @@
 
     var reg;
     var sub;
-    var registrationId;
 
 
     return services;
@@ -93,28 +92,17 @@
       var endpoint = sub.endpoint;
 
       if (endpoint.match(/^https:\/\/android\.googleapis\.com\/gcm\/send/)) {
-        registrationId = endpoint.match(/(?:.*?)send\/(.*)$/)[1];
+        var registrationId = endpoint.match(/(?:.*?)send\/(.*)$/)[1];
         endpoint = 'https://android.googleapis.com/gcm/send';
+        userFactory.setRegistrationId(registrationId);
       }
 
-      var data = {
-        endpoint: endpoint,
-        registrationId: registrationId,
-      };
-
-      $http.post(apiFactory.getBaseUrl() + '/api/users', data)
-      .then(function success() {
-        console.log('posted subscription to server');
-      })
-      .catch(function error() {
-        console.log('error posting subscription to server');
-      });
     }
 
 
     function playExample() {
       var data = {
-        registrationId: registrationId,
+        registrationId: userFactory.getRegistrationId(),
       };
 
       console.log('data =', data);
