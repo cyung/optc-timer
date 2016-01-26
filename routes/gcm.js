@@ -4,7 +4,7 @@ var request = require('request');
 var key = require('../config.json').GCM_KEY;
 
 router.post('/', function(req, res, next) {
-  var registrationId = req.body.registrationId;
+  var registrationIds = req.body.registrationIds;
 
   request({
     url: 'https://android.googleapis.com/gcm/send',
@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
       'Content-Type': 'application/json',
     },
     json: {
-      to: registrationId,
+      "registration_ids": registrationIds,
     },
   }, function(err, result, body) {
     if (err) {
@@ -25,5 +25,6 @@ router.post('/', function(req, res, next) {
     res.sendStatus(200);
   });
 });
+
 
 module.exports = router;

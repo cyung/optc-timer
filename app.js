@@ -9,6 +9,7 @@ var api = require('./routes/api');
 var users = require('./routes/users');
 var turtle = require('./routes/turtle');
 var mongoose = require('mongoose');
+var utilities = require('./utilities');
 
 var app = express();
 mongoose.connect('mongodb://localhost/optc');

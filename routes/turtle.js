@@ -9,7 +9,6 @@ var turtleCache = new NodeCache({
 });
 
 router.get('/', function(req, res, next) {
-  console.log('req.query =', req.query);
   var version = req.query.version;
   var digit = req.query.digit % 5;
   var key = version + 'Dates' + digit;

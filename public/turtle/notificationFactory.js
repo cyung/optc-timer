@@ -102,7 +102,7 @@
 
     function playExample() {
       var data = {
-        registrationId: userFactory.getRegistrationId(),
+        registrationIds: [userFactory.getRegistrationId()],
       };
 
       console.log('data =', data);
@@ -116,5 +116,5 @@
       });
     }
 }
-    
+
 })();
