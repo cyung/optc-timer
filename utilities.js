@@ -5,7 +5,7 @@ var request = require('request');
 var rp = require('request-promise');
 var moment = require('moment');
 
-var j = schedule.scheduleJob('*/1 * * * *', function() {
+var j = schedule.scheduleJob('*/10 * * * * *', function() {
   console.log('printing every minute');
 
   var options = {
@@ -26,10 +26,13 @@ var j = schedule.scheduleJob('*/1 * * * *', function() {
 });
 
 function notifyUsers(digit, upcomingTime) {
-  if (!isTenMinutesPrior(upcomingTime))
+  minutesUntil = getMinutesUntil(upcomingTime);
+  
+  if (minutesUntil > 120)
     return;
 
-  User.find({digit: digit}, function(err, data) {
+
+  User.find({digit: digit, timeBefore: minutesUntil}, function(err, data) {
     if (err) {
       console.log('Unable to find users with digit ' + digit, err);
     }
@@ -51,14 +54,13 @@ function notifyUsers(digit, upcomingTime) {
   });
 }
 
-function isTenMinutesPrior(upcomingTime) {
+function getMinutesUntil(upcomingTime) {
   var now = moment.utc();
 
   if (!now.isBefore(upcomingTime))
-    return false;
+    return 999;
 
-  var minutes = upcomingTime.diff(now, 'minutes');
-  return minutes === 10;
+  return upcomingTime.diff(now, 'minutes');
 }
 
 // TO-DO: GCM for japan turtle times

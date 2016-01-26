@@ -7,10 +7,12 @@ var key = require('../config.json').GCM_KEY;
 router.post('/', function(req, res, next) {
   var digit = req.body.digit;
   var registrationId = req.body.registrationId;
+  var timeBefore = req.body.timeBefore;
 
   var data = {
     digit: digit,
     registrationId: registrationId,
+    timeBefore: timeBefore,
   };
 
   User.findOneAndUpdate({registrationId: registrationId}, 

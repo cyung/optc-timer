@@ -15,8 +15,6 @@
       setTimeFormat: setTimeFormat,
       getVersion: getVersion,
       setVersion: setVersion,
-      getNotificationStatus: getNotificationStatus,
-      setNotificationStatus: setNotificationStatus,
       getHtmlNotificationStatus: getHtmlNotificationStatus,
       setHtmlNotificationStatus: setHtmlNotificationStatus,
       getHtmlNotificationSoundStatus: getHtmlNotificationSoundStatus,
@@ -32,7 +30,6 @@
     var digit;
     var timeFormat;
     var version;
-    var notificationStatus;
     var htmlNotificationStatus;
     var htmlNotificationSoundStatus;
     var turtleTimes;
@@ -46,8 +43,6 @@
       digit = localStorageService.get('digit') || 0;
       timeFormat = localStorageService.get('timeFormat') || 'standard';
       version = localStorageService.get('version') || 'global';
-      // notificationStatus = localStorageService.get('notificationStatus') || false;
-      notificationStatus = false;
       htmlNotificationStatus = localStorageService.get('htmlNotificationStatus') || false;
       htmlNotificationSoundStatus = localStorageService.get('htmlNotificationSoundStatus') || false;
       timeBeforeNotification = localStorageService.get('timeBeforeNotification') || 10;
@@ -57,6 +52,7 @@
       var data = {
         digit: digit%5,
         registrationId: registrationId,
+        timeBefore: timeBeforeNotification,
       };
 
       $http.post(apiFactory.getBaseUrl() + '/api/users', data)
@@ -100,15 +96,6 @@
       localStorageService.set('version', v);
     }
 
-    function getNotificationStatus() {
-      return notificationStatus;
-    }
-
-    function setNotificationStatus(n) {
-      notificationStatus = n;
-      localStorageService.set('notificationStatus', n);
-    }
-
     function getHtmlNotificationStatus() {
       return htmlNotificationStatus;
     }
@@ -142,6 +129,7 @@
     function setTimeBeforeNotification(t) {
       timeBeforeNotification = t;
       localStorageService.set('timeBeforeNotification', t);
+      postUserData();
     }
 
     function getRegistrationId() {

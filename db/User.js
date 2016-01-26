@@ -5,6 +5,7 @@ var timestamps = require('mongoose-timestamp');
 var userSchema = new Schema({
   registrationId: String,
   digit: Number,
+  timeBefore: Number,
 });
 
 userSchema.plugin(timestamps);
