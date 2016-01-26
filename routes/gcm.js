@@ -15,10 +15,10 @@ router.post('/', function(req, res, next) {
     },
     json: {
       to: registrationId,
-      notification: {
+      data: {
         title: 'OPTC Timer',
         body: '10 minutes until turtle time!',
-      }
+      },
     },
 
   }, function(err, result, body) {

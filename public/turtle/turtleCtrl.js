@@ -46,7 +46,6 @@
 
 
     self.updateNotificationStatus = function() {
-      console.log('self.notificationStatus =', self.notificationStatus);
       if (!self.notificationStatus)
         return;
 
