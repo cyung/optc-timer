@@ -5,6 +5,7 @@ var key = require('../config.json').GCM_KEY;
 
 router.post('/', function(req, res, next) {
   var registrationId = req.body.registrationId;
+  console.log('registrationId =', registrationId);
 
   request({
     url: 'https://android.googleapis.com/gcm/send',
@@ -15,12 +16,7 @@ router.post('/', function(req, res, next) {
     },
     json: {
       to: registrationId,
-      data: {
-        title: 'OPTC Timer',
-        body: '10 minutes until turtle time!',
-      },
     },
-
   }, function(err, result, body) {
     console.log('body =', body);
     if (err) {

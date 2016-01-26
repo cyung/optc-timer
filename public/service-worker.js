@@ -1,9 +1,8 @@
 self.addEventListener('push', function(event) {  
   console.log('Received a push message', event);
 
-  var data = event.data.json();
-  var title = data.title;
-  var body = data.body || data.message;
+  var title = 'OPTC Timer';
+  var body = 'Turtle time is coming up!';
   var icon = 'images/flag.png';
 
   event.waitUntil(  
