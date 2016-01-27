@@ -47,9 +47,9 @@
       for (var i = 0; i < NUM_WEEKS; i++) {
         addDateToArray(dates, start.format('YYYY-MM-DD'), 'global');
         addDateToArray(dates, start.format('YYYY-MM-DD'), 'japan');
-        start.add('3', 'days');
-        addDateToArray(dates, start.format('YYYY-MM-DD'), 'japan');
         start.add('4', 'days');
+        addDateToArray(dates, start.format('YYYY-MM-DD'), 'japan');
+        start.add('3', 'days');
       }
 
       console.log('dates =', dates);
