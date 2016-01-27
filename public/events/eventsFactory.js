@@ -16,9 +16,9 @@
     function getEventTimes() {
       var version = userFactory.getVersion();
       var NUM_DAYS = 5;
-      var dropTable = ['Loguetown', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island', 'Orange Town, Little Garden', 'Shell Town, Whiskey Peak', "Alvida's Hideout, Twin Cape"];
-      var staminaTable = ['Orange Town, Drum Island', 'Shell Town, Little Garden', "Alvida's Hideout, Whiskey Peak", 'Fuschia Village, Twin Cape', 'Loguetown', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase'];
-      var beliTable = ['Baratie, Whiskey Peak', 'Syrup Village, Twin Cape', 'Loguetown', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island', 'Little Garden'];
+      var dropTable = ['Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island', 'Orange Town, Little Garden', 'Shell Town, Whiskey Peak, Ark Maxim', 'Alvida\'s Hideout, Twin Cape, Skypia'];
+      var staminaTable = ['Orange Town, Drum Island', 'Shell Town, Little Garden', 'Alvida\'s Hideout, Whiskey Peak, Ark Maxim', 'Fuschia Village, Twin Cape, Skypia', 'Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase'];
+      var beliTable = ['Baratie, Whiskey Peak, Ark Maxim', 'Syrup Village, Twin Cape, Skypia', 'Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island', 'Little Garden'];
       var start = getStartTime(version);
       var dayOfYear = start.dayOfYear();
 
