@@ -18,7 +18,7 @@ angular.module('app')
       TT_HTML_NOTIFICATION: 'HTML Notifications',
       TT_NOTIF_TEST: 'Example Chrome/Android Notification',
       TT_HTML_NOTIF_TEST: 'Example HTML Notification',
-      TT_NOTIF_MINUTES: 'Minutes before event',
+      TT_NOTIF_MINUTES: 'Notification time in advance',
       TT_MINUTES: 'Minutes',
       TT_NOTIF_SOUND: 'Play sound',
       TT_NOTIF_EXAMPLE: 'Example',
