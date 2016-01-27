@@ -115,9 +115,8 @@ router.post('/date', function(req, res, next) {
   console.log('query =', query);
 
   TurtleDate.find(query, function(err, data) {
-    console.log('err =', err);
     if (err) {
-      console.log('error retrieving turtle dates');
+      console.log('error retrieving turtle dates', err);
       res.sendStatus(400);
     } else if (data.length) {
       console.log('date already exists');

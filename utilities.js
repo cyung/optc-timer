@@ -5,9 +5,7 @@ var request = require('request');
 var rp = require('request-promise');
 var moment = require('moment');
 
-var j = schedule.scheduleJob('*/1 * * * *', function() {
-  console.log('printing every minute');
-
+var notificationJob = schedule.scheduleJob('*/1 * * * *', function() {
   var options = {
     url: 'http://localhost:3000/api/turtle',
     qs: {
@@ -24,6 +22,15 @@ var j = schedule.scheduleJob('*/1 * * * *', function() {
   });
 
 });
+
+var clearOldDbJob = schedule.scheduleJob('* */1 * * *', function() {
+  var past = moment().subtract(3, 'days').format('x');
+  User.find({'updatedAt': {'$lt': past}}, function(err, data) {
+    if (err) {
+      return console.log('Error finding users', err);
+    }
+  });
+})
 
 function notifyUsers(digit, upcomingTime) {
   minutesUntil = getMinutesUntil(upcomingTime);
