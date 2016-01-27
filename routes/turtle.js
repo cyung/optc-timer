@@ -4,8 +4,8 @@ var moment = require('moment');
 var TurtleDate = require('../db/TurtleDate');
 var NodeCache = require('node-cache');
 var turtleCache = new NodeCache({
-  stdTTL: 600,
-  checkperiod: 620,
+  stdTTL: 10,
+  checkperiod: 11,
 });
 
 router.get('/', function(req, res, next) {
