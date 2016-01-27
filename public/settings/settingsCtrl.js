@@ -8,9 +8,30 @@
 
   function settingsCtrl(userFactory) {
     var self = this;
+
+    self.languages = [
+      {
+        language: 'English',
+        abbrev: 'en',
+      },
+      {
+        language: 'Deutsche',
+        abbrev: 'de',
+      },
+      {
+        language: 'Español',
+        abbrev: 'es',
+      },
+      {
+        language: 'français',
+        abbrev: 'fr',
+      },
+    ];
+
     self.timeFormat = userFactory.getTimeFormat();
     self.htmlNotificationSoundStatus = userFactory.getHtmlNotificationSoundStatus();
     self.timeBeforeNotification = userFactory.getTimeBeforeNotification();
+    self.locale = userFactory.getLocale();
 
     self.setTimeFormat = function() {
       userFactory.setTimeFormat(self.timeFormat);
@@ -22,6 +43,10 @@
 
     self.updateTimeBefereNotification = function() {
       userFactory.setTimeBeforeNotification(self.timeBeforeNotification);
+    }
+
+    self.updateLocale = function() {
+      userFactory.setLocale(self.locale);
     }
 
   }

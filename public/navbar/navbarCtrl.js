@@ -4,35 +4,35 @@
   angular.module('app')
   .controller('NavbarCtrl', navbarCtrl);
 
-  navbarCtrl.$inject = ['$state', '$mdSidenav'];
+  navbarCtrl.$inject = ['$state', '$mdSidenav', '$translate'];
 
-  function navbarCtrl($state, $mdSidenav) {
+  function navbarCtrl($state, $mdSidenav, $translate) {
     var self = this;
 
     self.menu = [
       {
         link: 'turtle',
-        title: 'Turtle Time',
+        title: $translate.instant('NAV_TURTLE'),
         icon: 'home'
       },
       {
         link: 'barrel',
-        title: 'Barrel Breaking',
+        title: $translate.instant('NAV_BARREL'),
         icon: 'stars'
       },
       {
         link: 'events',
-        title: 'Events',
+        title: $translate.instant('NAV_EVENT'),
         icon: 'event'
       },
       {
         link: 'contact',
-        title: 'Contact',
+        title: $translate.instant('NAV_CONTACT'),
         icon: 'email'
       },
       {
         link: 'settings',
-        title: 'Settings',
+        title: $translate.instant('NAV_SETTINGS'),
         icon: 'settings'
       }
     ];
@@ -41,8 +41,8 @@
       if (!$state.current.hasOwnProperty('data'))
         return false;
 
-      self.title = $state.current.data.title;
-      return (title === $state.current.data.title);
+      self.title = $translate.instant($state.current.data.title);
+      return (title === self.title);
     };
 
     self.toggleSidenav = function() {

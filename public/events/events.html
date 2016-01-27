@@ -6,14 +6,14 @@
     </md-radio-group>
     <div class="vertical-divider"></div>
     <md-checkbox ng-model="events.format" ng-change="events.showHours()">
-      Show Hours
+      {{'BB_ALT' | translate}}
     </md-checkbox>
   </div>
   <md-data-table-container>
     <table md-data-table md-row-selected="event.selected">
       <thead md-order="barrel.query.order">
         <tr>
-          <th name="Date" class="event-table-header"></th>
+          <th name="{{'BB_DATE' | translate}}" class="event-table-header"></th>
           <th name="2x Drop" class="event-table-header"></th>
           <th name="1/2 Stamina" class="event-table-header"></th>
           <th name="2x Beli" class="event-table-header" ng-show="events.isLargeScreen()"></th>

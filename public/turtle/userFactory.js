@@ -4,9 +4,9 @@
   angular.module('app')
   .factory('userFactory', userFactory);
 
-  userFactory.$inject = ['localStorageService', '$http', 'apiFactory'];
+  userFactory.$inject = ['localStorageService', '$http', 'apiFactory', '$translate'];
 
-  function userFactory(localStorageService, $http, apiFactory) {
+  function userFactory(localStorageService, $http, apiFactory, $translate) {
     var services = {
       getTimeZone: getTimeZone,
       getDigit: getDigit,
@@ -27,6 +27,8 @@
       setRegistrationId: setRegistrationId,
       getDetailedHourStatus: getDetailedHourStatus,
       setDetailedHourStatus: setDetailedHourStatus,
+      getLocale: getLocale,
+      setLocale: setLocale,
     };
 
     var digit;
@@ -38,6 +40,7 @@
     var timeBeforeNotification;
     var registrationId;
     var detailedHourStatus;
+    var locale;
     loadFromStorage();
 
     return services;
@@ -50,6 +53,8 @@
       htmlNotificationSoundStatus = localStorageService.get('htmlNotificationSoundStatus') || false;
       timeBeforeNotification = localStorageService.get('timeBeforeNotification') || 10;
       detailedHourStatus = localStorageService.get('detailedHourStatus') || false;
+      locale = localStorageService.get('locale') || 'en';
+      $translate.use(locale);
     }
 
     function postUserData() {
@@ -152,6 +157,16 @@
     function setDetailedHourStatus(d) {
       detailedHourStatus = d;
       localStorageService.set('detailedHourStatus', d);
+    }
+
+    function getLocale() {
+      return locale;
+    }
+
+    function setLocale(l) {
+      locale = l;
+      localStorageService.set('locale', l);
+      $translate.use(l);
     }
   }
 

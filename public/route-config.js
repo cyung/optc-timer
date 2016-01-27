@@ -17,7 +17,7 @@
         controller: 'TurtleCtrl',
         controllerAs: 'turtle',
         data: {
-          title: 'Turtle Time'
+          title: 'NAV_TURTLE'
         }
       })
       .state('barrel', {
@@ -26,7 +26,7 @@
         controller: 'BarrelCtrl',
         controllerAs: 'barrel',
         data: {
-          title: 'Barrel Breaking'
+          title: 'NAV_BARREL'
         }
       })
       .state('events', {
@@ -35,7 +35,7 @@
         controller: 'EventsCtrl',
         controllerAs: 'events',
         data: {
-          title: 'Events'
+          title: 'NAV_EVENT'
         }
       })
       .state('contact', {
@@ -44,7 +44,7 @@
         controller: 'ContactCtrl',
         controllerAs: 'contact',
         data: {
-          title: 'Contact'
+          title: 'NAV_CONTACT'
         }
       })
       .state('settings', {
@@ -53,7 +53,7 @@
         controller: 'SettingsCtrl',
         controllerAs: 'settings',
         data: {
-          title: 'Settings'
+          title: 'NAV_SETTINGS'
         }
       })
       .state('admin', {

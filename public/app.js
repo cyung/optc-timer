@@ -1,1 +1,1 @@
-angular.module('app', ['ui.router', 'ngMaterial', 'ngMdIcons', 'LocalStorageModule', 'md.data.table']);
+angular.module('app', ['ui.router', 'ngMaterial', 'ngMdIcons', 'LocalStorageModule', 'md.data.table', 'pascalprecht.translate']);

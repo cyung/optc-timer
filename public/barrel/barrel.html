@@ -6,17 +6,17 @@
     </md-radio-group>
     <div class="vertical-divider"></div>
     <md-checkbox ng-model="barrel.format" ng-change="barrel.showHours()">
-      Show Hours
+      {{'BB_ALT' | translate}}
     </md-checkbox>
   </div>
   <md-data-table-container>
     <table md-data-table>
       <thead>
         <tr>
-          <th name="Date" class="barrel-table-header"></th>
-          <th name="Wooden" class="barrel-table-header" ng-show="barrel.isLargeScreen()"></th>
-          <th name="Silver" class="barrel-table-header"></th>
-          <th name="Gold" class="barrel-table-header"></th>
+          <th name="{{'BB_DATE' | translate}}" class="barrel-table-header"></th>
+          <th name="{{'BB_WOODEN' | translate}}" class="barrel-table-header" ng-show="barrel.isLargeScreen()"></th>
+          <th name="{{'BB_SILVER' | translate}}" class="barrel-table-header"></th>
+          <th name="{{'BB_GOLD' | translate}}" class="barrel-table-header"></th>
         </tr>
       </thead>
       <tbody>

@@ -1,7 +1,7 @@
 <md-content layout="column" flex layout-fill layout-align="start center">
-  <div class="timezone">Time Zone: {{turtle.timezone}}</div>
+  <div class="timezone">{{'TT_TIMEZONE' | translate}} {{turtle.timezone}}</div>
   <md-input-container>
-    <label>6th Digit of ID</label>
+    <label>{{'TT_DIGIT' | translate}}</label>
     <input type="number" class="digit-input" ng-model="turtle.digit" ng-change="turtle.updateDigit()" min="0" max="9">
   </md-input-container>
   <div layout="row" class="turtle-options" layout-align="center center">
@@ -11,8 +11,8 @@
     </md-radio-group>
     <div class="vertical-divider"></div>
     <div layout="column">
-      <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.toggleNotification()">Chrome/Android Notifications</md-switch>
-      <md-switch ng-model="turtle.htmlNotificationStatus" ng-disabled="!turtle.htmlNotificationEnabled" ng-change="turtle.updateHtmlNotificationStatus()")>HTML Notifications</md-switch>
+      <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.toggleNotification()">{{'TT_NOTIFICATION' | translate}}</md-switch>
+      <md-switch ng-model="turtle.htmlNotificationStatus" ng-disabled="!turtle.htmlNotificationEnabled" ng-change="turtle.updateHtmlNotificationStatus()")>{{'TT_HTML_NOTIFICATION' | translate}}</md-switch>
     </div>
   </div>
   <md-card class="turtle-card">
@@ -26,9 +26,9 @@
       </md-item>
     </md-list>
   </md-card>
-  <md-button class="md-raised md-primary" ng-click="turtle.getCalendar()">Add to Calendar</md-button>
-  <md-button class="md-raised" ng-click="turtle.playExampleNotification()">Test Chrome Notification</md-button>
-  <md-button class="md-raised" ng-click="turtle.playExampleHtmlNotification()">Test HTML Notification</md-button>
+  <md-button class="md-raised md-primary" ng-click="turtle.getCalendar()">{{'TT_ADD_CALENDAR' | translate}}</md-button>
+  <md-button class="md-raised" ng-click="turtle.playExampleNotification()">{{'TT_NOTIF_TEST' | translate}}</md-button>
+  <md-button class="md-raised" ng-click="turtle.playExampleHtmlNotification()">{{'TT_HTML_NOTIF_TEST' | translate}}</md-button>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- OPTC Timer -->
   <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-3283323307969871" data-ad-slot="3604296541"></ins>
