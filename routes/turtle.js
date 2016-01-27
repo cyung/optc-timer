@@ -4,8 +4,8 @@ var moment = require('moment');
 var TurtleDate = require('../db/TurtleDate');
 var NodeCache = require('node-cache');
 var turtleCache = new NodeCache({
-  stdTTL: 10,
-  checkperiod: 11,
+  stdTTL: 5,
+  checkperiod: 2,
 });
 
 router.get('/', function(req, res, next) {
@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
   var turtleDates = turtleCache.get(key);
 
   if (turtleDates) {
+    console.log('loaded data from cache');
     return res.send(turtleDates);
   }
 

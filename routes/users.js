@@ -22,7 +22,6 @@ router.post('/', function(req, res, next) {
         return res.sendStatus(400);
       }
 
-      console.log('added/updated user: ', user);
       res.sendStatus(200);
   });
 });
