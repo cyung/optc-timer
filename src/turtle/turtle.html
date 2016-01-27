@@ -1,0 +1,38 @@
+<md-content layout="column" flex layout-fill layout-align="start center">
+  <div class="timezone">{{'TT_TIMEZONE' | translate}} {{turtle.timezone}}</div>
+  <md-input-container>
+    <label>{{'TT_DIGIT' | translate}}</label>
+    <input type="number" class="digit-input" ng-model="turtle.digit" ng-change="turtle.updateDigit()" min="0" max="9">
+  </md-input-container>
+  <div layout="row" class="turtle-options" layout-align="center center">
+    <md-radio-group ng-model="turtle.version" ng-change="turtle.updateVersion()" class="version-options">
+      <md-radio-button value="global">GLOBAL</md-radio-button>
+      <md-radio-button value="japan">JAPAN</md-radio-button>
+    </md-radio-group>
+    <div class="vertical-divider"></div>
+    <div layout="column">
+      <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.toggleNotification()">{{'TT_NOTIFICATION' | translate}}</md-switch>
+      <md-switch ng-model="turtle.htmlNotificationStatus" ng-disabled="!turtle.htmlNotificationEnabled" ng-change="turtle.updateHtmlNotificationStatus()")>{{'TT_HTML_NOTIFICATION' | translate}}</md-switch>
+    </div>
+  </div>
+  <md-card class="turtle-card">
+    <md-list class="turtle-list" layout="column">
+      <md-item class="turtle-item" ng-repeat="turtleTime in turtle.turtleTimes">
+        <md-item-content layout="row" layout-align="start center" layout-wrap>
+          <span class="turtle-date">{{turtleTime.date}}</span>
+          <span flex></span>
+          <span class="turtle-time">{{turtleTime.time}}</span>
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </md-card>
+  <md-button class="md-raised md-primary" ng-click="turtle.getCalendar()">{{'TT_ADD_CALENDAR' | translate}}</md-button>
+  <md-button class="md-raised" ng-click="turtle.playExampleNotification()">{{'TT_NOTIF_TEST' | translate}}</md-button>
+  <md-button class="md-raised" ng-click="turtle.playExampleHtmlNotification()">{{'TT_HTML_NOTIF_TEST' | translate}}</md-button>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- OPTC Timer -->
+  <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-3283323307969871" data-ad-slot="3604296541"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</md-content>

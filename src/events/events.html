@@ -1,0 +1,43 @@
+<md-content layout="column" flex layout-align="start center">
+  <div layout="row" class="turtle-options" layout-align="center center">
+    <md-radio-group ng-model="events.version" ng-change="events.updateVersion()" class="version-options">
+      <md-radio-button value="global">GLOBAL</md-radio-button>
+      <md-radio-button value="japan">JAPAN</md-radio-button>
+    </md-radio-group>
+    <div class="vertical-divider"></div>
+    <md-checkbox ng-model="events.format" ng-change="events.showHours()">
+      {{'BB_ALT' | translate}}
+    </md-checkbox>
+  </div>
+  <md-data-table-container>
+    <table md-data-table md-row-selected="event.selected">
+      <thead md-order="barrel.query.order">
+        <tr>
+          <th name="{{'BB_DATE' | translate}}" class="event-table-header"></th>
+          <th name="2x Drop" class="event-table-header"></th>
+          <th name="1/2 Stamina" class="event-table-header"></th>
+          <th name="2x Beli" class="event-table-header" ng-show="events.isLargeScreen()"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr md-auto-select ng-repeat="time in events.eventTimes">
+          <td class="event-table-item">
+            <div layout="column">
+              <div>{{time.date}}</div>
+              <div ng-show="events.format">{{time.hourDisplay}}</div>
+            </div>
+          </td>
+          <td class="event-table-item">
+            <div ng-repeat="island in time.drop">{{island}}</div>
+          </td>
+          <td class="event-table-item">
+            <div ng-repeat="island in time.stamina">{{island}}</div>
+          </td>
+          <td class="event-table-item" ng-show="events.isLargeScreen()">
+            <div ng-repeat="island in time.beli">{{island}}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-data-table-container>
+</md-content>

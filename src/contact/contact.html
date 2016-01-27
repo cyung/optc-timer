@@ -1,0 +1,51 @@
+<md-content layout="column" flex layout-align="start center" layout-padding>
+  <form name="contactForm" class="contact-form">
+    <md-input-container>
+      <label>Name</label>
+      <input type="text" name="name" md-maxlength="30" ng-model="contact.message.name" required>
+    </md-input-container>
+    <md-input-container>
+      <label>Email</label>
+      <input type="email" name="name" md-maxlength="30" ng-model="contact.message.email" required>
+    </md-input-container>
+    <md-input-container>
+      <label>Subject</label>
+      <md-select ng-model="contact.message.subject">
+        <md-option ng-repeat="subject in contact.subjects" value="{{subject}}">
+          {{subject}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <div layout="row" layout-align="start center" ng-show="contact.isTurtleBug()">
+      <label>Was it correct in the past?</label>
+      <md-radio-group layout="row" ng-model="contact.message.correctBefore" ng-required="contact.isTurtleBug()">
+        <md-radio-button value="Yes">Yes</md-radio-button>
+        <md-radio-button value="No">No</md-radio-button>
+      </md-radio-group>
+    </div>
+    <div layout="row" layout-align="start center" ng-show="contact.isTurtleBug()">
+      <label>Game Version</label>
+      <md-radio-group layout="row" ng-model="contact.message.gameVersion" ng-required="contact.isTurtleBug()">
+        <md-radio-button value="Global">Global</md-radio-button>
+        <md-radio-button value="Japan">Japan</md-radio-button>
+      </md-radio-group>
+    </div>
+    <md-input-container ng-show="contact.isTurtleBug()">
+      <label>Browser</label>
+      <input type="text" name="browser" ng-model="contact.message.browser">
+    </md-input-container>
+    <md-input-container ng-show="contact.isTurtleBug()">
+      <label>Time Zone</label>
+      <input type="text" name="browser" ng-model="contact.message.timeZone">
+    </md-input-container>
+    <md-input-container>
+      <label>Description</label>
+      <textarea name="description" ng-model="contact.message.description" required></textarea>
+    </md-input-container>
+    <md-button ng-click="contact.sendMessage()" ng-disabled="contactForm.$invalid" class="md-raised md-primary">Send Message</md-button>
+  </form>
+  <div layout="row" layout-sm="column" layout-align="start center">
+    <md-progress-circular md-mode="indeterminate" ng-show="contact.status === 'Sending...'"></md-progress-circular>
+    <span>{{contact.status}}</span>
+  </div>
+</md-content>
