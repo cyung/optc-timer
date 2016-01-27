@@ -15,7 +15,7 @@
         abbrev: 'en',
       },
       {
-        language: 'Deutsche',
+        language: 'Deutsch',
         abbrev: 'de',
       },
       {
