@@ -1,6 +1,6 @@
 .sass-cache
 node_modules
 config.json
-public/lib/bower
+src/lib/bower
 .DS_Store
 
