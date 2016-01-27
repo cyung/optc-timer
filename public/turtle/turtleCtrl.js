@@ -4,9 +4,9 @@
   angular.module('app')
   .controller('TurtleCtrl', turtleCtrl);
 
-  turtleCtrl.$inject = ['$scope', 'userFactory', 'timeFactory', 'notificationFactory', 'htmlNotificationFactory'];
+  turtleCtrl.$inject = ['$scope', 'userFactory', 'timeFactory', 'notificationFactory', 'htmlNotificationFactory', 'calendarFactory'];
   
-  function turtleCtrl($scope, userFactory, timeFactory, notificationFactory, htmlNotificationFactory) {
+  function turtleCtrl($scope, userFactory, timeFactory, notificationFactory, htmlNotificationFactory, calendarFactory) {
     var self = this;
 
     setParams();
@@ -84,6 +84,10 @@
 
     self.playExampleHtmlNotification = function() {
       htmlNotificationFactory.playExample();
+    }
+
+    self.getCalendar = function() {
+      calendarFactory.getCalendar();
     }
   }
 

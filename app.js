@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var api = require('./routes/api');
-var users = require('./routes/users');
-var turtle = require('./routes/turtle');
+var contact = require('./routes/contact');
 var mongoose = require('mongoose');
 var utilities = require('./utilities');
 
@@ -28,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 app.use('/api', api);
+app.use('/contact', contact);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -165,4 +165,14 @@ md-list {
 .manager-datepicker {
   padding: 5px; }
 
+/*===============================
+=            CONTACT            =
+===============================*/
+.contact-form {
+  width: 100%; }
+
+@media (min-width: 960px) {
+  .contact-form {
+    width: 60%; } }
+
 /*# sourceMappingURL=main.css.map */

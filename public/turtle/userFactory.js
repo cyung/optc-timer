@@ -150,7 +150,6 @@
     }
 
     function setDetailedHourStatus(d) {
-      console.log('setting status', d);
       detailedHourStatus = d;
       localStorageService.set('detailedHourStatus', d);
     }

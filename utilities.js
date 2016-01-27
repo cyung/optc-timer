@@ -5,7 +5,7 @@ var request = require('request');
 var rp = require('request-promise');
 var moment = require('moment');
 
-var j = schedule.scheduleJob('*/10 * * * * *', function() {
+var j = schedule.scheduleJob('*/1 * * * *', function() {
   console.log('printing every minute');
 
   var options = {
