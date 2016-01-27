@@ -51,6 +51,14 @@ gulp.task('copyFavicon', function() {
     .pipe(gulp.dest('./public'));
 });
 
+gulp.task('copyServiceWorker', function() {
+  return gulp.src([
+      './src/service-worker.js',
+      './src/manifest.json'
+    ])
+    .pipe(gulp.dest('./public'));
+})
+
 gulp.task('build-vendor-js', function() {
   return gulp.src([
     './src/lib/bower/angular/angular.min.js',
