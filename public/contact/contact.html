@@ -18,9 +18,16 @@
     </md-input-container>
     <div layout="row" layout-align="start center" ng-show="contact.isTurtleBug()">
       <label>Was it correct in the past?</label>
-      <md-radio-group layout="row" ng-model="contact.message.correctBefore">
+      <md-radio-group layout="row" ng-model="contact.message.correctBefore" ng-required="contact.isTurtleBug()">
         <md-radio-button value="Yes">Yes</md-radio-button>
         <md-radio-button value="No">No</md-radio-button>
+      </md-radio-group>
+    </div>
+    <div layout="row" layout-align="start center" ng-show="contact.isTurtleBug()">
+      <label>Game Version</label>
+      <md-radio-group layout="row" ng-model="contact.message.gameVersion" ng-required="contact.isTurtleBug()">
+        <md-radio-button value="Global">Global</md-radio-button>
+        <md-radio-button value="Japan">Japan</md-radio-button>
       </md-radio-group>
     </div>
     <md-input-container ng-show="contact.isTurtleBug()">
