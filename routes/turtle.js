@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     return res.send(turtleDates);
   }
 
-  TurtleDate.find({})
+  TurtleDate.find({version: version})
   .sort({turtleDate: '1'})
   .exec(function(err, data) {
     if (err) {
@@ -38,12 +38,9 @@ function setTurtleDates(data, options) {
   var digit = (options.digit || 0) % 5;
   var dates = [];
 
-  // get dates for version
-  for (var i = 0; i < data.length; i++) {
-    if (version === data[i].version) {
-      dates.push(data[i].turtleDate.getTime());
-    }
-  }
+  dates = data.map(function(item) {
+    return item.turtleDate.getTime();
+  });
 
   // get index for first upcoming turtle time
   var now = moment.utc().format('x');
