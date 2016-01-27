@@ -40,7 +40,7 @@ angular.module('app')
       TT_DIGIT: '6te Ziffer der ID',
       TT_FORMAT: 'Zeitformat',
       TT_STANDARD: 'Standard',
-      TT_MILITARY: '24-Stunden Format',
+      TT_MILITARY: '24-Stunden',
       TT_TIMEZONE: 'Zeitzone:',
       TT_SEEMORE: 'siehe mehr',
       TT_ADD_CALENDAR: 'Zum Kalender hinzufügen',

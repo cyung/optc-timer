@@ -203,6 +203,11 @@ md-list {
 
 .settings-label {
   font-family: $display;
+  margin-right: 13px;
+}
+
+.settings-language {
+  padding-top: 15px;
 }
 
 @media (min-width: 960px) {

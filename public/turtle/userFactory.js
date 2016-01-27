@@ -55,6 +55,7 @@
       detailedHourStatus = localStorageService.get('detailedHourStatus') || false;
       locale = localStorageService.get('locale') || 'en';
       $translate.use(locale);
+      moment.locale(locale);
     }
 
     function postUserData() {
@@ -167,6 +168,7 @@
       locale = l;
       localStorageService.set('locale', l);
       $translate.use(l);
+      moment.locale(locale);
     }
   }
 

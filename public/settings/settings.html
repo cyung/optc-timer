@@ -1,27 +1,30 @@
-<md-content layout="column" flex layout-align="start center">
-  <md-input-container>
-    <md-select ng-model="settings.locale" ng-change="settings.updateLocale()">
-      <md-option ng-repeat="choice in settings.languages" value="{{choice.abbrev}}">
-        {{choice.language}}
-      </md-option>
-    </md-select>
-  </md-input-container>
+<md-content layout="column" flex layout-align="start center" class="settings-language">
+  <div layout="row" class="settings-language">
+    <span class="settings-label">Language:</span>
+    <md-input-container>
+      <md-select ng-model="settings.locale" ng-change="settings.updateLocale()" aria-label="locale">
+        <md-option ng-repeat="choice in settings.languages" value="{{choice.abbrev}}">
+          {{choice.language}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
   <div layout="row" layout-align="start center">
-    <span class="settings-label">{{'TT_FORMAT' | translate}}</span>
+    <span class="settings-label">{{'TT_FORMAT' | translate}}:</span>
     <md-radio-group layout="row" ng-model="settings.timeFormat" ng-change="settings.setTimeFormat()">
       <md-radio-button value="standard">{{'TT_STANDARD' | translate}}</md-radio-button>
       <md-radio-button value="military">{{'TT_MILITARY' | translate}}</md-radio-button>
     </md-radio-group>
   </div>
   <div layout="row" layout-align="start center">
-    <span class="settings-label">{{'TT_NOTIF_MINUTES' | translate}}</span>
+    <span class="settings-label">{{'TT_NOTIF_MINUTES' | translate}}:</span>
     <md-input-container>
       <label>{{'TT_MINUTES' | translate}}</label>
       <input type="number" class="digit-input" ng-model="settings.timeBeforeNotification" ng-model="settings.timeBeforeNotification" ng-change="settings.updateTimeBefore()" min="0" max="1440">
     </md-input-container>
   </div>
   <div layout="row" layout-align="start center">
-    <span class="settings-label">{{'TT_NOTIF_SOUND' | translate}}</span>
-    <md-switch ng-model="settings.htmlNotificationSoundStatus" ng-change="settings.setHtmlNotificationSoundStatus()"></md-switch>
+    <span class="settings-label">{{'TT_NOTIF_SOUND' | translate}}:</span>
+    <md-switch ng-model="settings.htmlNotificationSoundStatus" ng-change="settings.setHtmlNotificationSoundStatus()" aria-label="notification-sound"></md-switch>
   </div>
 </md-content>

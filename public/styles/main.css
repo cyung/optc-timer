@@ -140,7 +140,11 @@ md-list {
 =            SETTINGS            =
 ================================*/
 .settings-label {
-  font-family: "Lato"; }
+  font-family: "Lato";
+  margin-right: 13px; }
+
+.settings-language {
+  padding-top: 15px; }
 
 @media (min-width: 960px) {
   .settings-label {
