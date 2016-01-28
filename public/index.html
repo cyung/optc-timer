@@ -7,14 +7,16 @@
   <link rel="manifest" href="manifest.json">
   
   <link rel="stylesheet" href="styles/bundle.css">
-  <!--
-  <link rel="stylesheet" href="lib/bower/normalize-css/normalize.css">
-  <link rel="stylesheet" href="lib/bower/angular-material/angular-material.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Righteous|Lato|Comfortaa' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="lib/bower/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="lib/bower/angular-material-data-table/dist/md-data-table.min.css">
-  -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68933908-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </head>
 
 <body ng-controller="NavbarCtrl as nav">
@@ -44,56 +46,24 @@
         <div class="title">{{nav.title}}</div>
       </md-toolbar>
       <div ui-view flex layout="row"></div>
+      <div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- OPTC Timer -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:320px;height:100px"
+             data-ad-client="ca-pub-3283323307969871"
+             data-ad-slot="3604296541"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
     </md-content>
   </md-content>
   
   <script src="javascript/vendor.js"></script>
   <script src="javascript/bundle.js"></script>
-  <!--
-  <script src="lib/bower/angular/angular.min.js"></script>
-  <script src="lib/bower/angular-animate/angular-animate.min.js"></script>
-  <script src="lib/bower/angular-aria/angular-aria.min.js"></script>
-  <script src="lib/bower/angular-material/angular-material.min.js"></script>
-  <script src="lib/bower/angular-material-icons/angular-material-icons.min.js"></script>
-  <script src="lib/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script src="lib/bower/angular-local-storage/dist/angular-local-storage.min.js"></script>
-  <script src="lib/bower/angular-translate/angular-translate.min.js"></script>
-  <script src="lib/jstz.min.js"></script>
-  <script src="lib/ics.js"></script>
-  <script src="lib/Blob.js"></script>
-  <script src="lib/FileSaver.js"></script>
-  <script src="lib/bower/moment/min/moment-with-locales.min.js"></script>
-  <script src="lib/bower/angular-material-data-table/dist/md-data-table.min.js"></script>
-  <script src="app.js"></script>
-  <script src="navbar/navbarCtrl.js"></script>
-  <script src="turtle/turtleCtrl.js"></script>
-  <script src="turtle/userFactory.js"></script>
-  <script src="turtle/timeFactory.js"></script>
-  <script src="turtle/notificationFactory.js"></script>
-  <script src="turtle/htmlNotificationFactory.js"></script>
-  <script src="turtle/apiFactory.js"></script>
-  <script src="turtle/calendarFactory.js"></script>
-  <script src="barrel/barrelCtrl.js"></script>
-  <script src="barrel/barrelFactory.js"></script>
-  <script src="events/eventsCtrl.js"></script>
-  <script src="events/eventsFactory.js"></script>
-  <script src="contact/contactCtrl.js"></script>
-  <script src="settings/settingsCtrl.js"></script>
-  <script src="admin/adminCtrl.js"></script>
-  <script src="admin/adminFactory.js"></script>
-  <script src="config/localizeConfig.js"></script>
-  <script src="route-config.js"></script>
-  -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
 
-    ga('create', 'UA-68933908-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
 </body>
 
 </html>
