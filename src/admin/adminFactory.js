@@ -4,9 +4,9 @@
   angular.module('app')
     .factory('adminFactory', adminFactory);
 
-  adminFactory.$inject = ['$http', 'apiFactory'];
+  adminFactory.$inject = ['$http', 'apiFactory', 'userFactory'];
 
-  function adminFactory($http, apiFactory) {
+  function adminFactory($http, apiFactory, userFactory) {
     var services = {
       addTurtleDate: addTurtleDate,
       addTurtleDates: addTurtleDates,
@@ -33,7 +33,7 @@
 
           cb(null, globalDates, japanDates);
         }).catch(function error() {
-          console.log('unable to get turtle dates');
+          cb('unable to get turtle dates');
         });
     }
 
@@ -52,7 +52,6 @@
         start.add('3', 'days');
       }
 
-      console.log('dates =', dates);
       addTurtleDates(dates, cb);
 
       function addDateToArray(arr, turtleDate, version) {
@@ -84,6 +83,7 @@
       $http.post(apiFactory.getBaseUrl() + '/api/turtle/date', {
         turtleDate: turtleDate,
         version: version,
+        password: userFactory.getPassword(),
       }).then(function success() {
         cb(null);
       }).catch(function error() {
@@ -96,8 +96,11 @@
         return {
           turtleDate: convertToUTC(date.turtleDate),
           version: date.version,
+          password: userFactory.getPassword(),
         };
-      })
+      });
+
+      console.log('dates =', dates);
 
       var runCount = 0;
       

@@ -7,6 +7,7 @@ var turtleCache = new NodeCache({
   stdTTL: 100,
   checkperiod: 120,
 });
+var ADMIN_PASSWORD = require('../config.json').ADMIN_PASSWORD;
 
 router.get('/', function(req, res, next) {
   var version = req.query.version;
@@ -107,6 +108,10 @@ router.get('/date', function(req, res, next) {
 });
 
 router.post('/date', function(req, res, next) {
+  if (!req.body.password || req.body.password !== ADMIN_PASSWORD) {
+    return res.sendStatus(400);
+  }
+
   var query = {
     turtleDate: new Date(+req.body.turtleDate),
     version: req.body.version,
@@ -136,19 +141,23 @@ router.post('/date', function(req, res, next) {
 
 });
 
-router.delete('/date/all', function(req, res, next) {
-  TurtleDate.remove({}, function(err) {
-    if (err) {
-      console.log('err =', err);
-      return res.sendStatus(400);
-    }
+// router.delete('/date/all', function(req, res, next) {
+//   TurtleDate.remove({}, function(err) {
+//     if (err) {
+//       console.log('err =', err);
+//       return res.sendStatus(400);
+//     }
 
-    console.log('successfully removed all entries');
-    res.sendStatus(200);
-  })
-})
+//     console.log('successfully removed all entries');
+//     res.sendStatus(200);
+//   })
+// });
 
 router.delete('/date', function(req, res, next) {
+  if (!req.query.password || req.query.password !== ADMIN_PASSWORD) {
+    return res.sendStatus(400);
+  }
+
   var query = {
     turtleDate: new Date(+req.query.turtleDate),
     version: req.query.version,

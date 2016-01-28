@@ -4,16 +4,29 @@
   angular.module('app')
     .controller('AdminCtrl', AdminCtrl);
 
-  AdminCtrl.$inject = ['adminFactory'];
+  AdminCtrl.$inject = ['adminFactory', 'userFactory'];
 
-  function AdminCtrl(adminFactory) {
+  function AdminCtrl(adminFactory, userFactory) {
     var self = this;
     self.globalDates = [];
     self.japanDates = [];
     self.globalSelected = [];
     self.japanSelected = [];
+    self.password = userFactory.getPassword();
 
     activate();
+
+    function activate() {
+      adminFactory.getTurtleDates(function(err, globalDates, japanDates) {
+        if (err) {
+          console.log('err =', err);
+          return;
+        }
+
+        self.globalDates = globalDates;
+        self.japanDates = japanDates;
+      });
+    }
 
     self.addBoth = function() {
       self.addDate('global');
@@ -60,7 +73,6 @@
     self.removePastDates = function() {
       var oldDates = getPastDates('global').concat(getPastDates('japan'));
 
-      console.log('oldDates =', oldDates);
       adminFactory.removeTurtleDates(oldDates, function(err) {
         if (err) {
           console.log('err =', err);
@@ -102,18 +114,9 @@
       })
     };
 
-    function activate() {
-      adminFactory.getTurtleDates(function(err, globalDates, japanDates) {
-        if (err) {
-          console.log('err =', err);
-          return;
-        }
-
-        self.globalDates = globalDates;
-        self.japanDates = japanDates;
-      });
+    self.updatePassword = function() {
+      userFactory.setPassword(self.password);
     }
-
   }
 
 })();

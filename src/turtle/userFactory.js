@@ -29,6 +29,8 @@
       setDetailedHourStatus: setDetailedHourStatus,
       getLocale: getLocale,
       setLocale: setLocale,
+      getPassword: getPassword,
+      setPassword: setPassword,
     };
 
     var digit;
@@ -41,6 +43,7 @@
     var registrationId;
     var detailedHourStatus;
     var locale;
+    var password;
     loadFromStorage();
 
     return services;
@@ -56,6 +59,7 @@
       locale = localStorageService.get('locale') || 'en';
       $translate.use(locale);
       moment.locale(locale);
+      password = localStorageService.get('password') || '';
     }
 
     function postUserData() {
@@ -169,6 +173,15 @@
       localStorageService.set('locale', l);
       $translate.use(l);
       moment.locale(locale);
+    }
+
+    function getPassword() {
+      return password;
+    }
+
+    function setPassword(p) {
+      password = p;
+      localStorageService.set('password', p);
     }
   }
 

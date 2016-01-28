@@ -1,5 +1,9 @@
 <div layout="column" layout-align="start center" layout-fill>
   <div class="section-header">Turtle Time Manager</div>
+  <md-input-container>
+    <label for="password">Password</label>
+    <input type="password" ng-model="admin.password" ng-change="admin.updatePassword()">
+  </md-input-container>
   <div layout="row" class="manager-options">
     <md-datepicker ng-model="admin.turtleDate" class="manager-datepicker"></md-datepicker>
     <div layout="column">
