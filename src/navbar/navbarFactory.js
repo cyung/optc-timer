@@ -2,17 +2,23 @@
   'use strict';
 
   angular.module('app')
-  .controller('NavbarCtrl', navbarCtrl);
+  .factory('navbarFactory', navbarFactory);
 
-  navbarCtrl.$inject = ['$state', '$mdSidenav', '$translate', '$scope', 'userFactory'];
+  navbarFactory.$inject = ['$translate', 'userFactory'];
 
-  function navbarCtrl($state, $mdSidenav, $translate, $scope, userFactory) {
-    var self = this;
+  function navbarFactory($translate, userFactory) {
+    var services = {
+      getMenu: getMenu,
+    };
 
-    activate();
+    var menu;
 
-    function activate() {
-      self.menu = [
+    getMenu();
+
+    return services;
+
+    function getMenu($translate) {
+      menu = [
         {
           link: 'turtle',
           title: $translate.instant('NAV_TURTLE'),
@@ -40,25 +46,6 @@
         }
       ];
     }
-
-    self.isSelected = function(title) {
-      if (!$state.current.hasOwnProperty('data'))
-        return false;
-
-      self.title = $translate.instant($state.current.data.title);
-      return (title === self.title);
-    };
-
-    self.toggleSidenav = function() {
-      $mdSidenav('left').toggle();
-    };
-
-    $scope.$watch(function() {
-      return userFactory.getLocale();
-    }, function() {
-      activate();
-    });
-
   }
 
 })();

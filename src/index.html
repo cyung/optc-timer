@@ -5,7 +5,8 @@
   <meta charset="UTF-8" name="viewport" content="width=device-width">
   <title>OPTC Timer</title>
   <link rel="manifest" href="manifest.json">
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.3/angular-material.min.css">
   <link rel="stylesheet" href="styles/bundle.css">
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,7 +31,7 @@
           <a ui-sref="{{item.link}}" class="nav-link">
             <md-item-content layout="row" layout-align="start center" ng-class="{'active': nav.isSelected('{{item.title}}')}" ng-click="nav.toggleSidenav()">
               <div class="inset">
-                <ng-md-icon icon="{{item.icon}}" style="fill: #FFF;"></ng-md-icon>
+                <i class="fa {{item.icon}} nav-icon"></i>
               </div>
               <div class="inset nav-item">{{item.title}}</div>
             </md-item-content>
@@ -41,7 +42,7 @@
     <md-content layout="column" flex>
       <md-toolbar class="top-bar" layout="row" layout-align="start center">
         <md-button class="menu-button" ng-click="nav.toggleSidenav()" hide-gt-md aria-label="Menu">
-          <ng-md-icon icon="menu" style="fill: #FFF;" size="60"></ng-md-icon>
+          <i class="fa fa-bars nav-hamburger"></i>
         </md-button>
         <div class="title">{{nav.title}}</div>
       </md-toolbar>
@@ -60,6 +61,13 @@
     </md-content>
   </md-content>
   
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.3/angular-material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.2/angular-local-storage.min.js"></script>
   <script src="javascript/vendor.js"></script>
   <script src="javascript/bundle.js"></script>
   

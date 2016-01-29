@@ -1,7 +1,7 @@
 <md-content layout="column" flex layout-align="start center" class="settings-language">
   <div layout="row" class="settings-language">
     <span class="settings-label">Language:</span>
-    <md-input-container>
+    <md-input-container class="language-input">
       <md-select ng-model="settings.locale" ng-change="settings.updateLocale()" aria-label="locale">
         <md-option ng-repeat="choice in settings.languages" value="{{choice.abbrev}}">
           {{choice.language}}
@@ -19,8 +19,8 @@
   <div layout="row" layout-align="start center">
     <span class="settings-label">{{'TT_NOTIF_MINUTES' | translate}}:</span>
     <md-input-container>
-      <label>{{'TT_MINUTES' | translate}}</label>
-      <input type="number" class="digit-input" ng-model="settings.timeBeforeNotification" ng-model="settings.timeBeforeNotification" ng-change="settings.updateTimeBefore()" min="0" max="1440">
+      <label class="minutes-label">{{'TT_MINUTES' | translate}}</label>
+      <input type="number" class="minutes-input" ng-model="settings.timeBeforeNotification" ng-model="settings.timeBeforeNotification" ng-change="settings.updateTimeBefore()" min="0" max="1440">
     </md-input-container>
   </div>
   <div layout="row" layout-align="start center">

@@ -8,28 +8,37 @@ var concatCss = require('gulp-concat-css');
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var filesize = require('gulp-filesize');
+var cdnizer = require("gulp-cdnizer");
 
 gulp.task('default', ['watch']);
 
-gulp.task('build', ['build-sass', 'build-css', 'copyHtml', 'copyImages', 'copySounds',
+gulp.task('build', ['build-sass', 'build-css', 'copyCss', 'copyHtml', 'copyImages', 'copySounds',
          'copyImages', 'copyFavicon', 'build-vendor-js', 'build-js']);
 
 gulp.task('build-sass', function() {
   return gulp.src('./src/styles/main.scss')
     .pipe(sass())
+    .pipe(cssmin())
     .pipe(gulp.dest('./src/styles'));
 })
 gulp.task('build-css', function() {
   return gulp.src([
-      './src/lib/bower/normalize-css/normalize.css',
-      './src/lib/bower/angular-material/angular-material.min.css',
-      './src/lib/bower/font-awesome/css/font-awesome.min.css',
+      // './src/lib/bower/normalize-css/normalize.css',
+      // './src/lib/bower/angular-material/angular-material.min.css',
       './src/lib/bower/angular-material-data-table/dist/md-data-table.min.css',
       './src/styles/*.css',
     ])
     .pipe(concatCss('bundle.css'))
     .pipe(gulp.dest('./public/styles'));
 });
+
+gulp.task('copyCss', function() {
+  return gulp.src([
+      './src/styles/main.css',
+      './src/lib/bower/angular-material-data-table/dist/md-data-table.min.css',
+    ])
+    .pipe(gulp.dest('./public/styles'));
+})
 
 gulp.task('copyHtml', function() {
   return gulp.src('./src/**/*.html')
@@ -61,16 +70,16 @@ gulp.task('copyServiceWorker', function() {
 
 gulp.task('build-vendor-js', function() {
   return gulp.src([
-    './src/lib/bower/angular/angular.min.js',
-    './src/lib/bower/angular-animate/angular-animate.min.js',
-    './src/lib/bower/angular-aria/angular-aria.min.js',
-    './src/lib/bower/angular-local-storage/dist/angular-local-storage.min.js',
-    './src/lib/bower/angular-material/angular-material.min.js',
+    // './src/lib/bower/angular/angular.min.js',
+    // './src/lib/bower/angular-animate/angular-animate.min.js',
+    // './src/lib/bower/angular-aria/angular-aria.min.js',
+    // './src/lib/bower/angular-local-storage/dist/angular-local-storage.min.js',
+    // './src/lib/bower/angular-material/angular-material.min.js',
     './src/lib/bower/angular-material-data-table/dist/md-data-table.min.js',
-    './src/lib/bower/angular-material-icons/angular-material-icons.min.js',
+    // './src/lib/bower/angular-material-icons/angular-material-icons.min.js',
     './src/lib/bower/angular-translate/angular-translate.min.js',
     './src/lib/bower/angular-ui-router/release/angular-ui-router.min.js',
-    './src/lib/bower/moment/min/moment-with-locales.min.js',
+    // './src/lib/bower/moment/min/moment-with-locales.min.js',
     './src/lib/*.js',
     ])
     .pipe(concat('vendor.js'))
@@ -85,9 +94,9 @@ gulp.task('build-js', function() {
       './src/config/*.js',
       './src/contact/*.js',
       './src/events/*.js',
+      './src/turtle/*.js',
       './src/navbar/*.js',
       './src/settings/*.js',
-      './src/turtle/*.js',
       './src/route-config.js',
     ])
     .pipe(sourcemaps.init())
@@ -100,7 +109,7 @@ gulp.task('build-js', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./src/styles/*.scss', ['build-sass']);
-  gulp.watch('./src/styles/*.css', ['build-css']);
+  gulp.watch('./src/styles/*.css', ['build-css', 'copyCss']);
   gulp.watch('./src/sounds/*', ['copySounds']);
   gulp.watch('./src/images/*', ['copyImages']);
   gulp.watch('./src/favicon.ico', ['copyFavicon']);

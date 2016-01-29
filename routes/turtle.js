@@ -108,7 +108,7 @@ router.get('/date', function(req, res, next) {
 });
 
 router.post('/date', function(req, res, next) {
-  if (!req.body.password || req.body.password !== ADMIN_PASSWORD) {
+  if (!req.body.password || (req.body.password !== ADMIN_PASSWORD)) {
     return res.sendStatus(400);
   }
 
@@ -154,7 +154,7 @@ router.post('/date', function(req, res, next) {
 // });
 
 router.delete('/date', function(req, res, next) {
-  if (!req.query.password || req.query.password !== ADMIN_PASSWORD) {
+  if (!req.query.password || (req.query.password !== ADMIN_PASSWORD)) {
     return res.sendStatus(400);
   }
 

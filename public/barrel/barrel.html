@@ -5,33 +5,33 @@
       <md-radio-button value="japan">JAPAN</md-radio-button>
     </md-radio-group>
     <div class="vertical-divider"></div>
-    <md-checkbox ng-model="barrel.format" ng-change="barrel.showHours()">
+    <md-checkbox ng-model="barrel.format" ng-change="barrel.showHours()" class="hours-checkbox">
       {{'BB_ALT' | translate}}
     </md-checkbox>
   </div>
-  <md-data-table-container>
-    <table md-data-table>
-      <thead>
-        <tr>
-          <th name="{{'BB_DATE' | translate}}" class="barrel-table-header"></th>
-          <th name="{{'BB_WOODEN' | translate}}" class="barrel-table-header" ng-show="barrel.isLargeScreen()"></th>
-          <th name="{{'BB_SILVER' | translate}}" class="barrel-table-header"></th>
-          <th name="{{'BB_GOLD' | translate}}" class="barrel-table-header"></th>
+  <md-table-container>
+    <table md-table>
+      <thead md-head>
+        <tr md-row>
+          <th md-column class="barrel-table-header">{{'BB_DATE' | translate}}</th>
+          <th md-column class="barrel-table-header" ng-show="barrel.isLargeScreen()">{{'BB_WOODEN' | translate}}</th>
+          <th md-column class="barrel-table-header">{{'BB_SILVER' | translate}}</th>
+          <th md-column class="barrel-table-header">{{'BB_GOLD' | translate}}</th>
         </tr>
       </thead>
-      <tbody>
-        <tr md-auto-select ng-repeat="time in barrel.barrelTimes">
-          <td class="barrel-table-item">
+      <tbody md-body>
+        <tr md-row md-auto-select ng-repeat="time in barrel.barrelTimes">
+          <td md-cell class="barrel-table-item">
             <div layout="column">
               <div>{{time.date}}</div>
               <div ng-show="barrel.format">{{time.hourDisplay}}</div>
             </div>
           </td>
-          <td class="barrel-table-item" ng-show="barrel.isLargeScreen()">{{time.woodDigits}}</td>
-          <td class="barrel-table-item">{{time.silverDigits}}</td>
-          <td class="barrel-table-item">{{time.goldDigits}}</td>
+          <td md-cell class="barrel-table-item" ng-show="barrel.isLargeScreen()">{{time.woodDigits}}</td>
+          <td md-cell class="barrel-table-item">{{time.silverDigits}}</td>
+          <td md-cell class="barrel-table-item">{{time.goldDigits}}</td>
         </tr>
       </tbody>
     </table>
-  </md-data-table-container>
+  </md-table-container>
 </md-content>
