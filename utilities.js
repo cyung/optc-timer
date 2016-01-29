@@ -6,15 +6,6 @@ var rp = require('request-promise');
 var moment = require('moment');
 
 var notificationJob = schedule.scheduleJob('*/1 * * * *', function() {
-  var options = {
-    url: 'http://localhost:3000/api/turtle',
-    qs: {
-      digit: 0,
-      version: 'global',
-    },
-    json: true,
-  };
-
   getUpcomingTimes().then(function(upcomingTimes) {
     for (var i = 0; i < 5; i++) {
       notifyUsers(i, upcomingTimes[i]);

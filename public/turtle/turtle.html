@@ -12,7 +12,7 @@
     <div class="vertical-divider"></div>
     <div layout="column">
       <md-switch ng-model="turtle.notificationStatus" ng-disabled="!turtle.notificationEnabled" ng-change="turtle.toggleNotification()">{{'TT_NOTIFICATION' | translate}}</md-switch>
-      <md-switch ng-model="turtle.htmlNotificationStatus" ng-disabled="!turtle.htmlNotificationEnabled" ng-change="turtle.updateHtmlNotificationStatus()")>{{'TT_HTML_NOTIFICATION' | translate}}</md-switch>
+      <md-switch ng-model="turtle.htmlNotificationStatus" ng-disabled="!turtle.htmlNotificationEnabled" ng-change="turtle.updateHtmlNotificationStatus()" )>{{'TT_HTML_NOTIFICATION' | translate}}</md-switch>
     </div>
   </div>
   <md-card class="turtle-card">
@@ -29,6 +29,20 @@
   <md-button class="md-raised md-primary" ng-click="turtle.getCalendar()">{{'TT_ADD_CALENDAR' | translate}}</md-button>
   <md-button class="md-raised" ng-click="turtle.playExampleNotification()">{{'TT_NOTIF_TEST' | translate}}</md-button>
   <md-button class="md-raised" ng-click="turtle.playExampleHtmlNotification()">{{'TT_HTML_NOTIF_TEST' | translate}}</md-button>
+  <md-content layout-padding layout-align="start center">
+    <md-divider></md-divider>
+    <h1>NOTIFICATION INFO</h1>
+    <h3>NOTE:</h3>
+    <span>
+      Currently, JPN notifications are not supported for Chrome/Android, but work for HTML.
+    </span>
+    <h3>How do I use Chrome/Android notifications?</h3>
+    <span>
+      Once you open the site, you'll be ready to receive notifications. As long as you leave Chrome running in the background(or minimized), you will receive a notification.
+    </span>
+    <h3>Can I receive notifications on iOS?</h3>
+    <span>Due to restrictions, no. However, I'm working on making the iOS app.</span>
+  </md-content>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- OPTC Timer -->
   <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-3283323307969871" data-ad-slot="3604296541"></ins>
