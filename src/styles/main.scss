@@ -128,6 +128,10 @@ md-list {
 
 .notif-options {
   padding-left: 20px;
+
+  md-switch {
+    line-height: 17px !important;
+  }
 }
 
 .notif-switch {

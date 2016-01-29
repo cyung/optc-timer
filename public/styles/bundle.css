@@ -553,6 +553,10 @@ md-list {
   padding-left: 20px;
 }
 
+.notif-options md-switch {
+  line-height: 17px!important;
+}
+
 .notif-switch {
   white-space: normal!important;
 }
