@@ -542,11 +542,15 @@ md-list {
 }
 
 .version-options {
-  padding: 11px 20px 0 0;
+  padding: 11px 20px 0 15px;
 }
 
 .notif-options {
   padding-left: 20px;
+}
+
+.notif-switch {
+  white-space: normal!important;
 }
 
 .turtle-item {
