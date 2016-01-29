@@ -668,7 +668,6 @@ md-list {
 
 .minutes-input {
   height: 45px!important;
-  margin-bottom: -15px;
   text-align: center;
   font-size: 30px;
 }
@@ -680,6 +679,10 @@ md-list {
 @media (min-width:960px) {
   .settings-label {
     font: 30px Lato;
+  }
+
+  .language-input {
+    margin-bottom: -15px;
   }
 }
 
@@ -695,6 +698,10 @@ md-list {
 
 .manager-options {
   padding-bottom: 10px;
+}
+
+.add-options {
+  margin-left: 20px;
 }
 
 .manager-button {
