@@ -73,10 +73,7 @@ gulp.task('build-vendor-js', function() {
     './src/lib/bower/moment/min/moment-with-locales.min.js',
     './src/lib/*.js',
     ])
-    .pipe(sourcemaps.init())
-    .pipe(filesize())
     .pipe(concat('vendor.js'))
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/javascript'));
 });
 
