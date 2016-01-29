@@ -5,7 +5,7 @@
     <input type="number" class="digit-input" ng-model="turtle.digit" ng-change="turtle.updateDigit()" min="0" max="9">
   </md-input-container>
   <div layout="row" class="turtle-options" layout-align="center center">
-    <md-radio-group ng-model="turtle.version" ng-change="turtle.updateVersion()" class="version-options">
+    <md-radio-group ng-model="turtle.version" ng-change="turtle.updateVersion()" class="version-options turtle-version">
       <md-radio-button value="global">GLOBAL</md-radio-button>
       <md-radio-button value="japan">JAPAN</md-radio-button>
     </md-radio-group>
