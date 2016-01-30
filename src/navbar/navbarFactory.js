@@ -13,7 +13,7 @@
     };
 
     var seo = {
-      pageTitle: 'OPTC Timer',
+      pageTitle: 'Home',
       description: 'Supplement app for One Piece Treasure Cruise to help calculate your turtle times and set notifications.',
     };
 
