@@ -4,47 +4,31 @@
   angular.module('app')
   .factory('navbarFactory', navbarFactory);
 
-  navbarFactory.$inject = ['$translate', 'userFactory'];
+  navbarFactory.$inject = [];
 
-  function navbarFactory($translate, userFactory) {
+  function navbarFactory() {
     var services = {
-      getMenu: getMenu,
+      getSeo: getSeo,
+      setSeo: setSeo,
     };
 
-    var menu;
+    var seo = {
+      pageTitle: 'OPTC Timer',
+      description: 'Supplement app for One Piece Treasure Cruise to help calculate your turtle times and set notifications.',
+    };
 
-    getMenu();
 
     return services;
 
-    function getMenu($translate) {
-      menu = [
-        {
-          link: 'turtle',
-          title: $translate.instant('NAV_TURTLE'),
-          icon: 'fa-home'
-        },
-        {
-          link: 'barrel',
-          title: $translate.instant('NAV_BARREL'),
-          icon: 'fa-users'
-        },
-        {
-          link: 'events',
-          title: $translate.instant('NAV_EVENT'),
-          icon: 'fa-calendar-o'
-        },
-        {
-          link: 'contact',
-          title: $translate.instant('NAV_CONTACT'),
-          icon: 'fa-envelope'
-        },
-        {
-          link: 'settings',
-          title: $translate.instant('NAV_SETTINGS'),
-          icon: 'fa-cogs'
-        }
-      ];
+    function getSeo() {
+      return seo;
+    }
+
+    function setSeo(title, description) {
+      seo.pageTitle = title;
+      seo.description = description;
+
+      return seo;
     }
   }
 

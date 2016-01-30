@@ -4,9 +4,9 @@
   angular.module('app')
   .controller('ContactCtrl', contactCtrl);
 
-  contactCtrl.$inject = ['$http', 'apiFactory'];
+  contactCtrl.$inject = ['$http', 'apiFactory', 'navbarFactory'];
 
-  function contactCtrl($http, apiFactory) {
+  function contactCtrl($http, apiFactory, navbarFactory) {
     var self = this;
 
     self.subjects = [
@@ -16,6 +16,8 @@
     ];
 
     self.message = {};
+
+    navbarFactory.setSeo('Contact Me', 'Find a bug? Have a question or feedback? Contact me and let me know.');
 
 
     self.isTurtleBug = function() {

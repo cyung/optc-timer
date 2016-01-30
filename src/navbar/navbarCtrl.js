@@ -4,10 +4,11 @@
   angular.module('app')
   .controller('NavbarCtrl', navbarCtrl);
 
-  navbarCtrl.$inject = ['$state', '$mdSidenav', '$translate', '$scope', 'userFactory'];
+  navbarCtrl.$inject = ['$state', '$mdSidenav', '$translate', '$scope', 'userFactory', 'navbarFactory'];
 
-  function navbarCtrl($state, $mdSidenav, $translate, $scope, userFactory) {
+  function navbarCtrl($state, $mdSidenav, $translate, $scope, userFactory, navbarFactory) {
     var self = this;
+    self.seo = navbarFactory.getSeo();
 
     activate();
 

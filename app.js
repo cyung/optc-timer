@@ -9,6 +9,7 @@ var api = require('./routes/api');
 var contact = require('./routes/contact');
 var mongoose = require('mongoose');
 var utilities = require('./utilities');
+var PRERENDER_TOKEN = require('./config.json').PRERENDER_TOKEN;
 
 var app = express();
 mongoose.connect('mongodb://localhost/optc');
@@ -24,6 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  require('prerender-node')
+    .set('prerenderServiceUrl', 'http://localhost:3000/')
+    .set('prerenderToken', 'YOUR_TOKEN')
+  );
 
 // app.use('/', routes);
 app.use('/api', api);

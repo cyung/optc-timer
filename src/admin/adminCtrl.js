@@ -4,9 +4,9 @@
   angular.module('app')
     .controller('AdminCtrl', AdminCtrl);
 
-  AdminCtrl.$inject = ['adminFactory', 'userFactory'];
+  AdminCtrl.$inject = ['adminFactory', 'userFactory', 'navbarFactory'];
 
-  function AdminCtrl(adminFactory, userFactory) {
+  function AdminCtrl(adminFactory, userFactory, navbarFactory) {
     var self = this;
     self.globalDates = [];
     self.japanDates = [];
@@ -17,6 +17,7 @@
     activate();
 
     function activate() {
+      navbarFactory.setSeo('Admin', 'Admin page for managing event dates.');
       adminFactory.getTurtleDates(function(err, globalDates, japanDates) {
         if (err) {
           console.log('err =', err);

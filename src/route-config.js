@@ -5,9 +5,9 @@
   angular.module('app')
   .config(config);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider'];
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function config($stateProvider, $urlRouterProvider) {
+  function config($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/turtle');
 
     $stateProvider
@@ -66,5 +66,7 @@
         }
       });
 
+      // $locationProvider.html5Mode(true);
+      $locationProvider.hashPrefix('!');
   }
 })();

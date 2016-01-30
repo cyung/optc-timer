@@ -4,9 +4,9 @@
   angular.module('app')
   .controller('SettingsCtrl', settingsCtrl);
 
-  settingsCtrl.$inject = ['userFactory'];
+  settingsCtrl.$inject = ['userFactory', 'navbarFactory'];
 
-  function settingsCtrl(userFactory) {
+  function settingsCtrl(userFactory, navbarFactory) {
     var self = this;
 
     self.languages = [
@@ -28,6 +28,7 @@
       },
     ];
 
+    navbarFactory.setSeo('Settings', 'Adjust your language and customize your notification settings.');
     self.timeFormat = userFactory.getTimeFormat();
     self.htmlNotificationSoundStatus = userFactory.getHtmlNotificationSoundStatus();
     self.timeBeforeNotification = userFactory.getTimeBeforeNotification();

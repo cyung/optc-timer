@@ -4,14 +4,15 @@
   angular.module('app')
   .controller('TurtleCtrl', turtleCtrl);
 
-  turtleCtrl.$inject = ['$scope', 'userFactory', 'timeFactory', 'notificationFactory', 'htmlNotificationFactory', 'calendarFactory'];
+  turtleCtrl.$inject = ['$scope', 'userFactory', 'timeFactory', 'notificationFactory', 'htmlNotificationFactory', 'calendarFactory', 'navbarFactory'];
   
-  function turtleCtrl($scope, userFactory, timeFactory, notificationFactory, htmlNotificationFactory, calendarFactory) {
+  function turtleCtrl($scope, userFactory, timeFactory, notificationFactory, htmlNotificationFactory, calendarFactory, navbarFactory) {
     var self = this;
 
     setParams();
 
     function setParams() {
+      navbarFactory.setSeo('Turtle Time Calculator', 'Determine your upcoming turtle time on this automatically-updating calculator and and receive a push notification on Android or desktop browser.');
       self.timezone = userFactory.getTimeZone();
       self.digit = userFactory.getDigit();
       self.version = userFactory.getVersion();
