@@ -12,6 +12,7 @@ var transporter = nodemailer.createTransport(path);
 
 router.post('/', function(req, res, next) {
   console.log('req.body =', req.body);
+  var to;
   var description = 'From: ' + req.body.name + ' <' + req.body.email + '>';
   description += '\n\nDescription:\n' + req.body.description;
 
@@ -24,11 +25,16 @@ router.post('/', function(req, res, next) {
       description += '\nBrowser: ' + req.body.browser;
     if ('timeZone' in req.body)
       description += '\nTime Zone: ' + req.body.timeZone;
+    to = ADMINS;
+  } else {
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    description += '\nIP Address: ' + ip;
+    to = 'cyung@bu.edu';
   }
 
   var options = {
     from: req.body.name + ' <' + req.body.email + '>',
-    to: ADMINS,
+    to: to,
     subject: req.body.subject,
     text: description,
   };
