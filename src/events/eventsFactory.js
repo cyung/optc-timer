@@ -16,9 +16,15 @@
     function getEventTimes() {
       var version = userFactory.getVersion();
       var NUM_DAYS = 5;
-      var dropTable = ['Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island', 'Orange Town, Little Garden', 'Shell Town, Whiskey Peak, Ark Maxim', 'Alvida\'s Hideout, Twin Cape, Skypia'];
-      var staminaTable = ['Orange Town, Drum Island', 'Shell Town, Little Garden', 'Alvida\'s Hideout, Whiskey Peak, Ark Maxim', 'Fuschia Village, Twin Cape, Skypia', 'Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase'];
-      var beliTable = ['Baratie, Whiskey Peak, Ark Maxim', 'Syrup Village, Twin Cape, Skypia', 'Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island', 'Little Garden'];
+      var dropTable = ['Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island, Water 7', 'Orange Town, Little Garden, Long Ring Long Land', 'Shell Town, Whiskey Peak, Ark Maxim', 'Alvida\'s Hideout, Twin Cape, Angel Island'];
+      var staminaTable = ['Orange Town, Drum Island, Water 7', 'Shell Town, Little Garden, Long Ring Long Land', 'Alvida\'s Hideout, Whiskey Peak, Ark Maxim', 'Fuschia Village, Twin Cape, Angel Island', 'Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase'];
+      var beliTable = ['Baratie, Whiskey Peak, Ark Maxim', 'Syrup Village, Twin Cape, Angel Island', 'Loguetown, Jaya', 'Arlong Park, Alubarna', 'Baratie, Nanohana Rainbase', 'Syrup Village, Drum Island, Water 7', 'Orange Town, Little Garden, Long Ring Long Land'];
+
+      if (version === 'japan') {
+        dropTable = ['Loguetown, Jaya, Thriller Bark 1', 'Arlong Park, Alubarna, Enies Lobby 2', 'Baratie, Nanohana Rainbase, Enies Lobby 1', 'Syrup Village, Drum Island, Water 7', 'Orange Town, Little Garden, Long Ring Long Land', 'Shell Town, Whiskey Peak, Ark Maxim', 'Alvida\'s Hideout, Twin Cape, Angel Island'];
+        staminaTable = ['Orange Town, Drum Island, Water 7', 'Shell Town, Little Garden, Long Ring Long Land', 'Alvida\'s Hideout, Whiskey Peak, Ark Maxim', 'Fuschia Village, Twin Cape, Angel Island', 'Loguetown, Jaya, Thriller Bark 1', 'Arlong Park, Alubarna, Enies Lobby 2', 'Baratie, Nanohana Rainbase, Enies Lobby 1'];
+        beliTable = ['Baratie, Whiskey Peak, Ark Maxim', 'Syrup Village, Twin Cape, Angel Island, Thriller Bark 2', 'Loguetown, Jaya, Thriller Bark 1', 'Arlong Park, Alubarna, Enies Lobby 2', 'Baratie, Nanohana Rainbase, Enies Lobby 1', 'Syrup Village, Drum Island, Water 7', 'Orange Town, Little Garden, Long Ring Long Land'];
+      }
       var start = getStartTime(version);
       var dayOfYear = start.dayOfYear();
 
