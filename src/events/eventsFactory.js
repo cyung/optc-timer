@@ -37,7 +37,7 @@
       return eventTimes;
 
       function getTime(dayNum) {
-        var offset = dayNum + dayOfYear + 3;
+        var offset = dayNum + dayOfYear + 4;
         offset = offset % 7;
 
         var drop = dropTable[offset].split(',');
