@@ -48,6 +48,7 @@ function setTurtleDates(data, options) {
   var now = moment.utc().format('x');
   var index = 0;
 
+  // increment the index according to the number of days in the past
   while ((index < dates.length) && (now>dates[index])) {
     index++;
   }
@@ -62,7 +63,7 @@ function setTurtleDates(data, options) {
 
   // convert dates to moment objects and get most recent 4
   numOfDays = (version === 'japan') ? numOfDays*2 : numOfDays;
-  dates = dates.splice(offset, numOfDays);
+  dates = dates.splice(index, numOfDays);
   dates = dates.map(function(date) {
     return moment.utc(date);
   });

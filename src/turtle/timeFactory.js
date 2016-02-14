@@ -11,11 +11,6 @@
       getTurtleTimes: getTurtleTimes,
     };
 
-    var globalHotfix = false;
-    var globalHotfixDate = '2015-09-17';
-    var japanHotfix = false;
-    var japanHotfixDate = '2015-09-17';
-
     return services;
 
     function getTurtleTimes(cb) {
