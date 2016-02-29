@@ -45,6 +45,9 @@
     }
 
     function subscribe(cb) {
+      if (!isEnabled())
+        return 'notifications not enabled';
+
       if (!reg) {
         attachWorker().then(function() {
           aux();
@@ -79,6 +82,8 @@
     }
 
     function unsubscribe(cb) {
+      if (!isEnabled())
+        return 'notifications not enabled';
       sub.unsubscribe().then(function(event) {
         console.log('Unsubscribed.', event);
         cb(null);
