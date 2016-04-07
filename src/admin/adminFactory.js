@@ -48,6 +48,7 @@
         addDateToArray(dates, start.format('YYYY-MM-DD'), 'global');
         addDateToArray(dates, start.format('YYYY-MM-DD'), 'japan');
         start.add('4', 'days');
+        addDateToArray(dates, start.format('YYYY-MM-DD'), 'global');
         addDateToArray(dates, start.format('YYYY-MM-DD'), 'japan');
         start.add('3', 'days');
       }
