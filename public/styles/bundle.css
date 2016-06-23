@@ -540,7 +540,7 @@ md-list {
 }
 
 .turtle-options {
-  height: 150px;
+  height: 100px;
 }
 
 .vertical-divider {
@@ -589,7 +589,6 @@ md-list {
 
 .turtle-card {
   width: 75vw;
-  height: 540px;
 }
 
 .turtle-list {
@@ -608,7 +607,6 @@ md-list {
 
   .turtle-card {
     width: 55vw;
-    height: 470px;
   }
 
   .turtle-date,

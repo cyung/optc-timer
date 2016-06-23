@@ -4,8 +4,8 @@ var moment = require('moment');
 var TurtleDate = require('../db/TurtleDate');
 var NodeCache = require('node-cache');
 var turtleCache = new NodeCache({
-  stdTTL: 100,
-  checkperiod: 120,
+  stdTTL: 10,
+  checkperiod: 11,
 });
 var ADMIN_PASSWORD = require('../config.json').ADMIN_PASSWORD;
 

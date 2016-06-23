@@ -41,14 +41,14 @@
         </md-item>
       </md-list>
     </md-sidenav>
-    <md-content layout="column" flex>
+    <md-content layout="column" layout-fill style="overflow-x: hidden;">
       <md-toolbar class="top-bar" layout="row" layout-align="start center">
         <md-button class="menu-button" ng-click="nav.toggleSidenav()" hide-gt-md aria-label="Menu">
           <i class="fa fa-bars nav-hamburger"></i>
         </md-button>
         <div class="title">{{nav.title}}</div>
       </md-toolbar>
-      <div ui-view flex layout="row"></div>
+      <div ui-view flex="none" layout="row"></div>
     </md-content>
   </md-content>
   <!-- 
