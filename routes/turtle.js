@@ -61,7 +61,7 @@ function setTurtleDates(data, options) {
     digitOrder.unshift(digitOrder.pop());
   }
 
-  // convert dates to moment objects and get most recent 4
+  // convert dates to moment objects and get most recent numOfDays
   numOfDays = (version === 'japan') ? numOfDays*2 : numOfDays;
   dates = dates.splice(index, numOfDays);
   dates = dates.map(function(date) {
