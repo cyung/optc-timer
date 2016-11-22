@@ -1,0 +1,8 @@
+{
+  "GCM_KEY": "ABCDEF1234567890",
+  "EMAIL_USERNAME": "receive@emails.com",
+  "EMAIL_PASSWORD": "password",
+  "ADMINS": "person1@gmail.com, person2@gmail.com",
+  "ADMIN_PASSWORD": "databasepassword",
+  "PRERENDER_TOKEN": "ABCDEF1234567890"
+}
